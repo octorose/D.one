@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Widgets/bottombar.dart';
+// import 'Widgets/bottombar.dart';
 import 'screens/home.dart';
 
 void main() {
@@ -13,11 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: home(),
+      title: 'Login App',
+      debugShowCheckedModeBanner: false,
+      home: const home(),
     );
   }
 }

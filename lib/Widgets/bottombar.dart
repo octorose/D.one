@@ -14,58 +14,89 @@ class _PublicbarState extends State<Publicbar> {
   }
 
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Container(
-        margin: const EdgeInsets.only(top: 2.0),
-        height: 90,
-        width: 90,
-        child: FloatingActionButton(
-          onPressed: () {},
-          child: const Icon(Icons.add),
-          backgroundColor: Colors.blue,
-        ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        color: Colors.white,
-        child: IconTheme(
-          data: IconThemeData(
-            color: Colors.blue,
+    return Container(
+      height: 80,
+      width: 80,
+      child: Scaffold(
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: Container(
+          height: 80,
+          width: 80,
+          child: FloatingActionButton(
+            onPressed: () {
+              print("5");
+            },
+            child: const Icon(Icons.add),
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(9.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    print("4");
-                  },
-                  icon: const Icon(Icons.settings),
+        ),
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: const Offset(0, 3), // changes position of shadow
+              ),
+            ],
+          ),
+          child: BottomAppBar(
+            // elevation: 10,
+            shape: CircularNotchedRectangle(),
+            color: Colors.white,
+            child: IconTheme(
+              data: IconThemeData(
+                color: Colors.blue,
+                shadows: <Shadow>[
+                  Shadow(
+                    offset: Offset(1.0, 1.0),
+                    blurRadius: 3.0,
+                    color: Colors.grey,
+                  ),
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(9.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    IconButton(
+                      highlightColor: Colors.transparent,
+                      splashColor: Colors.transparent,
+                      onPressed: () {
+                        print("4");
+                      },
+                      icon: const Icon(Icons.settings),
+                    ),
+                    IconButton(
+                      highlightColor: Colors.transparent,
+                      splashColor: Colors.transparent,
+                      onPressed: () {
+                        print("3");
+                      },
+                      icon: const Icon(Icons.book),
+                      padding: EdgeInsets.only(right: 50.0),
+                    ),
+                    IconButton(
+                      highlightColor: Colors.transparent,
+                      splashColor: Colors.transparent,
+                      onPressed: () {
+                        print("2");
+                      },
+                      icon: const Icon(Icons.notifications),
+                      padding: EdgeInsets.only(left: 50.0),
+                    ),
+                    IconButton(
+                      highlightColor: Colors.transparent,
+                      splashColor: Colors.transparent,
+                      onPressed: () {
+                        print("1");
+                      },
+                      icon: const Icon(Icons.person_outline),
+                    ),
+                  ],
                 ),
-                IconButton(
-                  onPressed: () {
-                    print("3");
-                  },
-                  icon: const Icon(Icons.book),
-                  padding: EdgeInsets.only(right: 30.0),
-                ),
-                IconButton(
-                  onPressed: () {
-                    print("2");
-                  },
-                  icon: const Icon(Icons.notifications),
-                  padding: EdgeInsets.only(left: 30.0),
-                ),
-                IconButton(
-                  onPressed: () {
-                    print("1");
-                  },
-                  icon: const Icon(Icons.person_outline),
-                ),
-              ],
+              ),
             ),
           ),
         ),

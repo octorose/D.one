@@ -1,6 +1,4 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_application_1/Widgets/bottombar.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/menu.dart';
 
 class home extends StatefulWidget {
@@ -13,6 +11,15 @@ class home extends StatefulWidget {
 class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
-    return menu();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      // home: menu()
+      //insert your home here
+      //home:
+    );
   }
 }

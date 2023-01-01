@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/add.dart';
+import 'package:flutter_application_1/screens/menu.dart';
 
 class Publicbar extends StatefulWidget {
-  Publicbar({Key? key}) : super(key: key);
+  String? text;
+  Publicbar({Key? key, this.text}) : super(key: key);
 
   @override
   State<Publicbar> createState() => _PublicbarState();
@@ -23,8 +26,13 @@ class _PublicbarState extends State<Publicbar> {
           height: 80,
           width: 80,
           child: FloatingActionButton(
+            heroTag: "add1",
+            // widget.text,
             onPressed: () {
-              print("5");
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => add()),
+              );
             },
             child: const Icon(Icons.add),
           ),

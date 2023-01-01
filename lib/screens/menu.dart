@@ -22,17 +22,8 @@ class _menuState extends State<menu> {
         drawer: Drawer(
           child: drawer(),
         ),
-        bottomNavigationBar: Publicbar(),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'Menu',
-                style: TextStyle(fontSize: 50),
-              ),
-            ],
-          ),
+        bottomNavigationBar: Publicbar(
+          text: "add1",
         ),
       ),
     );

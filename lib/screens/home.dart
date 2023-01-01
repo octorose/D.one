@@ -22,14 +22,14 @@ class _homeState extends State<home> {
         routes: {
           "menu": (context) => menu(),
           "add": (context) => add(),
+          "login": (context) => LoginPage(),
         },
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        // home: menu(),
-        //insert your home here
-        home: LoginPage());
+        //MATBDLOHACH GHIR DKHL W DIR NEXT NEXT....
+        home: Onboarding());
   }
 }

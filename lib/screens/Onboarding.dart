@@ -88,7 +88,7 @@ class _OnboardingState extends State<Onboarding> {
                               ),
                             ),
                             onPressed: () {
-                              // Navigator.pushNamed(context, '/login');
+                              Navigator.pushNamed(context, 'login');
                             },
                             child: Text('skip',
                                 style: TextStyle(
@@ -129,7 +129,7 @@ class _OnboardingState extends State<Onboarding> {
                                   backgroundColor:
                                       Color.fromARGB(255, 50, 39, 88)),
                               onPressed: (() {
-                                // Navigator.pushNamed(context, '/login');
+                                Navigator.pushNamed(context, 'login');
                               }),
                               child: Text('Get Started')),
                         ],

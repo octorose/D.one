@@ -112,47 +112,87 @@ class _LoginFormState extends State<LoginForm> {
             ],
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Container(
-              margin: const EdgeInsets.only(right: 16, top: 16),
-              child: Text(
-                "Forgot ?",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.grey[400],
+
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.end,
+        //   children: [
+        //     Container(
+        //       margin: const EdgeInsets.only(right: 16, top: 16),
+        //       child: Text(
+        //         "Forgot ?",
+        //         style: TextStyle(
+        //           fontSize: 20,
+        //           fontWeight: FontWeight.w600,
+        //           color: Colors.grey[400],
+        //         ),
+        //       ),
+        //     ),
+        //   ],
+        // ),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.start,
+        //   children: [
+        //     Container(
+        //       margin: const EdgeInsets.only(left: 16, top: 24),
+        //       child: const Text(
+        //         "Register",
+        //         style: TextStyle(
+        //           fontSize: 20,
+        //           fontWeight: FontWeight.w600,
+        //           color: Color(0xffe98f60),
+        //         ),
+        //       ),
+        //     ),
+        //   ],
+        // ),
+        Container(
+          // margin: const EdgeInsets.only(top: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 70),
+          child: Center(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Flexible(
+                      child: Container(
+                        height: 1,
+                        width: 100,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      child: Text(
+                        'or',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      child: Container(
+                        height: 1,
+                        width: 100,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          print("oussama");
+                        },
+                        icon: Icon(Icons.facebook_rounded)),
+                    const SizedBox(width: 24),
+                    Icon(Icons.face),
+                  ],
+                )
+              ],
             ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-              margin: const EdgeInsets.only(left: 16, top: 24),
-              child: const Text(
-                "Register",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xffe98f60),
-                ),
-              ),
-            ),
-          ],
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.facebook),
-              const SizedBox(width: 24),
-              Icon(Icons.facebook),
-            ],
           ),
         ),
       ],

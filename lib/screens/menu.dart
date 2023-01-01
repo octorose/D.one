@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_application_1/Widgets/bottombar.dart';
+import 'package:flutter_application_1/Widgets/drawer.dart';
 
 class menu extends StatefulWidget {
   const menu({super.key});
@@ -12,8 +12,29 @@ class menu extends StatefulWidget {
 class _menuState extends State<menu> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Menu'),
+          backgroundColor: Colors.blue,
+        ),
+        drawer: Drawer(
+          child: drawer(),
+        ),
+        bottomNavigationBar: Publicbar(),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Text(
+                'Menu',
+                style: TextStyle(fontSize: 50),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

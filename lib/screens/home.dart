@@ -15,18 +15,17 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      routes: {
-        "menu": (context) => menu(),
-        "add": (context) => add(),
-      },
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      // home: menu(),
-      //insert your home here
-      home:LoginPage();
-    );
+        routes: {
+          "menu": (context) => menu(),
+          "add": (context) => add(),
+        },
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        // home: menu(),
+        //insert your home here
+        home: LoginPage());
   }
 }

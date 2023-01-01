@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/add.dart';
 import 'package:flutter_application_1/screens/menu.dart';
 
 class home extends StatefulWidget {
@@ -12,12 +13,16 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        "menu": (context) => menu(),
+        "add": (context) => add(),
+      },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: menu()
+      home: menu(),
       //insert your home here
       //home:
     );

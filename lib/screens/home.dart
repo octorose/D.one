@@ -4,6 +4,10 @@ import 'package:flutter_application_1/screens/menu.dart';
 import 'package:flutter_application_1/screens/LoginPage.dart';
 import 'package:flutter/material.dart';
 import 'LoginPage.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_application_1/Widgets/bottombar.dart';
+import 'package:flutter_application_1/screens/menu.dart';
+import 'package:flutter_application_1/screens/Onboarding.dart';
 
 class home extends StatefulWidget {
   const home({super.key});
@@ -18,14 +22,15 @@ class _homeState extends State<home> {
         routes: {
           "menu": (context) => menu(),
           "add": (context) => add(),
+          "login": (context) => LoginPage(),
         },
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        // home: menu(),
-        //insert your home here
+        //MATBDLOHACH GHIR DKHL W DIR NEXT NEXT....
+        // home: Onboarding()
         home: LoginPage());
   }
 }

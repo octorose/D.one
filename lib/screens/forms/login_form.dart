@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/menu.dart';
+import 'package:flutter_application_1/screens/Onboarding.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -8,23 +10,29 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
+  var msg = TextEditingController();
+  var msge = "";
+  GlobalKey<FormState> _numberForm = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return SafeArea(
+        child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
           margin: const EdgeInsets.only(bottom: 10),
           child: const Image(
-            height: 140,
-            width: 140,
+            height: 100,
+            width: 100,
+            // hat hana logo d-one
             image: NetworkImage(
               'https://img.icons8.com/3d-fluency/512/user-male-circle.png',
             ),
           ),
         ),
         Container(
-          margin: const EdgeInsets.only(bottom: 60),
+          margin: const EdgeInsets.only(bottom: 40),
           child: const Text(
             "Sign In",
             style: TextStyle(
@@ -33,7 +41,6 @@ class _LoginFormState extends State<LoginForm> {
             ),
           ),
         ),
-
         Flexible(
           child: SizedBox(
             height: 150,
@@ -59,33 +66,40 @@ class _LoginFormState extends State<LoginForm> {
                       ),
                     ],
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(left: 16, right: 32),
-                        child: const TextField(
-                          decoration: InputDecoration(
-                            hintStyle: TextStyle(fontSize: 20),
-                            border: InputBorder.none,
-                            icon: Icon(Icons.person_outline_outlined),
-                            hintText: "Adress Email",
+                  child: Form(
+                    key: _numberForm,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(left: 16, right: 32),
+                          child: TextFormField(
+                            controller: msg,
+                            validator: (val) {
+                              if (val!.isEmpty) return "set your Email";
+                            },
+                            decoration: InputDecoration(
+                              hintStyle: TextStyle(fontSize: 20),
+                              border: InputBorder.none,
+                              icon: Icon(Icons.person_outline_outlined),
+                              hintText: "Adress Email",
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(left: 16, right: 32),
-                        child: const TextField(
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            hintStyle: TextStyle(fontSize: 22),
-                            border: InputBorder.none,
-                            icon: Icon(Icons.lock_outline_rounded),
-                            hintText: "Password",
+                        Container(
+                          margin: const EdgeInsets.only(left: 16, right: 32),
+                          child: const TextField(
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              hintStyle: TextStyle(fontSize: 22),
+                              border: InputBorder.none,
+                              icon: Icon(Icons.lock_outline_rounded),
+                              hintText: "Password",
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 Align(
@@ -114,10 +128,23 @@ class _LoginFormState extends State<LoginForm> {
                         ],
                       ),
                     ),
-                    child: const Icon(
-                      Icons.arrow_forward_outlined,
-                      color: Colors.white,
-                      size: 32,
+                    child: IconButton(
+                      onPressed: () {
+                        if (_numberForm.currentState!.validate()) {
+                          msge = msg.text;
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Onboarding(),
+                            ),
+                          );
+                        }
+                      },
+                      icon: Icon(
+                        Icons.arrow_forward_outlined,
+                        color: Colors.white,
+                        size: 32,
+                      ),
                     ),
                   ),
                 ),
@@ -125,7 +152,6 @@ class _LoginFormState extends State<LoginForm> {
             ),
           ),
         ),
-
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -142,24 +168,8 @@ class _LoginFormState extends State<LoginForm> {
             ),
           ],
         ),
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.start,
-        //   children: [
-        //     Container(
-        //       margin: const EdgeInsets.only(left: 16, top: 24),
-        //       child: const Text(
-        //         "Register",
-        //         style: TextStyle(
-        //           fontSize: 20,
-        //           fontWeight: FontWeight.w600,
-        //           color: Color(0xffe98f60),
-        //         ),
-        //       ),
-        //     ),
-        //   ],
-        // ),
         Container(
-          margin: const EdgeInsets.only(top: 50),
+          margin: const EdgeInsets.only(top: 20),
           padding: const EdgeInsets.symmetric(horizontal: 70),
           child: Center(
             child: Column(
@@ -174,7 +184,7 @@ class _LoginFormState extends State<LoginForm> {
                       ),
                     ),
                     const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      padding: EdgeInsets.symmetric(horizontal: 10),
                       child: Text(
                         'Or Sign With',
                         style: TextStyle(
@@ -196,19 +206,19 @@ class _LoginFormState extends State<LoginForm> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 80, 0, 0),
+                    const Padding(
+                      padding: EdgeInsets.fromLTRB(0, 65, 0, 0),
                     ),
                     // ignore: prefer_const_constructors
                     Image(
                       height: 45,
                       width: 45,
-                      image: NetworkImage(
+                      image: const NetworkImage(
                         'https://img.icons8.com/fluency/512/facebook-new.png',
                       ),
                     ),
                     const SizedBox(width: 24),
-                    Image(
+                    const Image(
                       height: 45,
                       width: 45,
                       image: NetworkImage(
@@ -216,20 +226,36 @@ class _LoginFormState extends State<LoginForm> {
                       ),
                     ),
                     const SizedBox(width: 24),
-                    Image(
+                    const Image(
                       height: 45,
                       width: 45,
                       image: NetworkImage(
                         'https://img.icons8.com/fluency/512/twitter-circled.png',
                       ),
-                    )
+                    ),
                   ],
-                )
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(right: 18, top: 10),
+                      child: const Text(
+                        "Don't Have An Account ?",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                          color: Color.fromARGB(255, 114, 112, 112),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
         ),
       ],
-    );
+    ));
   }
 }

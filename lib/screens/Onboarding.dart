@@ -141,6 +141,12 @@ class _OnboardingState extends State<Onboarding> {
                                               Color.fromARGB(255, 50, 39, 88)),
                                       onPressed: (() {
                                         Navigator.pushNamed(context, 'login');
+                                        Navigator.push(context,
+                                            MaterialPageRoute(
+                                                builder: (context) {
+                                          _updateSeen();
+                                          return LoginPage();
+                                        }));
                                       }),
                                       child: Text('Get Started')),
                                 ],
@@ -225,7 +231,7 @@ class _OnboardingState extends State<Onboarding> {
       ),
     );
   }
-  
+
   void _updateSeen() {
     SharedPreferences.getInstance().then((prefs) {
       prefs.setBool('seen', true);

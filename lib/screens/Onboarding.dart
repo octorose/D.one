@@ -4,6 +4,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_1/Widgets/Slide.dart';
 import 'package:flutter_application_1/Widgets/slideitem.dart';
+import 'package:flutter_application_1/screens/LoginPage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});
@@ -129,7 +131,11 @@ class _OnboardingState extends State<Onboarding> {
                                   backgroundColor:
                                       Color.fromARGB(255, 50, 39, 88)),
                               onPressed: (() {
-                                Navigator.pushNamed(context, 'login');
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  _updateSeen();
+                                  return LoginPage();
+                                }));
                               }),
                               child: Text('Get Started')),
                         ],
@@ -138,5 +144,11 @@ class _OnboardingState extends State<Onboarding> {
         ),
       ),
     );
+  }
+  
+  void _updateSeen() {
+    SharedPreferences.getInstance().then((prefs) {
+      prefs.setBool('seen', true);
+    });
   }
 }

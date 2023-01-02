@@ -4,6 +4,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_1/Widgets/Slide.dart';
 import 'package:flutter_application_1/Widgets/slideitem.dart';
+import 'package:flutter_application_1/screens/LoginPage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});
@@ -222,5 +224,11 @@ class _OnboardingState extends State<Onboarding> {
         ),
       ),
     );
+  }
+  
+  void _updateSeen() {
+    SharedPreferences.getInstance().then((prefs) {
+      prefs.setBool('seen', true);
+    });
   }
 }

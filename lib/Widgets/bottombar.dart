@@ -81,6 +81,10 @@ class _PublicbarState extends State<Publicbar> {
                       splashColor: Colors.transparent,
                       onPressed: () {
                         print("3");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => menu()),
+                        );
                       },
                       icon: const Icon(Icons.book),
                       padding: EdgeInsets.only(right: 50.0),

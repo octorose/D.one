@@ -15,7 +15,7 @@ class _SlideitemState extends State<Slideitem> {
     return Column(
       children: [
         SizedBox(
-          height: 80,
+          height: 75,
         ),
         Text(
           slideList[widget.index!].title,
@@ -34,7 +34,7 @@ class _SlideitemState extends State<Slideitem> {
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Color.fromARGB(255, 133, 132, 132),
+            color: Color.fromARGB(255, 255, 255, 255),
           ),
         ),
         SizedBox(

@@ -1,6 +1,8 @@
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/add.dart';
+import 'package:flutter_application_1/screens/menu.dart';
 import 'background/background.dart';
 import 'forms/login_form.dart';
 
@@ -15,6 +17,11 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        "menu": (context) => menu(),
+        "add": (context) => add(),
+        
+      },
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       home: Scaffold(

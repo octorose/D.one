@@ -30,7 +30,6 @@ class _homeState extends State<home> {
           primarySwatch: Colors.blue,
         ),
         //MATBDLOHACH GHIR DKHL W DIR NEXT NEXT....
-        // home: Onboarding()
-        home: LoginPage());
+        home: Onboarding());
   }
 }

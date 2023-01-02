@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/Onboarding.dart';
+import 'package:flutter_application_1/screens/menu.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -134,7 +135,7 @@ class _LoginFormState extends State<LoginForm> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Onboarding(),
+                              builder: (context) => menu(),
                             ),
                           );
                         }
@@ -238,7 +239,7 @@ class _LoginFormState extends State<LoginForm> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                      margin: const EdgeInsets.only(right: 18, top: 10),
+                      margin: EdgeInsets.only(top: 10),
                       child: const Text(
                         "Don't Have An Account ?",
                         style: TextStyle(

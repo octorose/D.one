@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/LoginPage.dart';
 import 'package:flutter_application_1/screens/Onboarding.dart';
-import 'package:flutter_application_1/screens/add.dart';
+import 'package:flutter_application_1/screens/add_menu.dart';
 import 'package:flutter_application_1/screens/menu.dart';
 import 'screens/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';

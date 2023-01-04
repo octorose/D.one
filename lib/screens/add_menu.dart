@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Widgets/appbar.dart';
 import 'package:flutter_application_1/Widgets/bottombar.dart';
 import 'package:flutter_application_1/Widgets/drawer.dart';
+import 'package:flutter_application_1/screens/bloodtest.dart';
 import 'package:flutter_application_1/screens/menu.dart';
 import 'dart:math';
 
@@ -31,14 +32,25 @@ class _addState extends State<add> {
         bottomNavigationBar: Publicbar(),
         body: Stack(
           children: [
-            Container(
-              child: OutlinedButton.icon(
-                onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => menu()));
-                },
-                icon: Icon(
-                  Icons.arrow_back_ios_sharp,
+            OutlinedButton.icon(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => menu()));
+              },
+              icon: Icon(
+                Icons.arrow_back_ios_sharp,
+                shadows: <Shadow>[
+                  Shadow(
+                    offset: Offset(0.5, 0.5),
+                    blurRadius: 0.5,
+                    color: Color.fromARGB(255, 6, 80, 141),
+                  ),
+                ],
+              ),
+              label: Text(
+                'back',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 6, 80, 141),
                   shadows: <Shadow>[
                     Shadow(
                       offset: Offset(0.5, 0.5),
@@ -47,23 +59,10 @@ class _addState extends State<add> {
                     ),
                   ],
                 ),
-                label: Text(
-                  'back',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 6, 80, 141),
-                    shadows: <Shadow>[
-                      Shadow(
-                        offset: Offset(0.5, 0.5),
-                        blurRadius: 0.5,
-                        color: Color.fromARGB(255, 6, 80, 141),
-                      ),
-                    ],
-                  ),
-                ),
-                style: OutlinedButton.styleFrom(
-                  primary: Color.fromARGB(255, 6, 80, 141),
-                  side: BorderSide(color: Colors.transparent),
-                ),
+              ),
+              style: OutlinedButton.styleFrom(
+                primary: Color.fromARGB(255, 6, 80, 141),
+                side: BorderSide(color: Colors.transparent),
               ),
             ),
             Center(
@@ -131,7 +130,8 @@ class _addState extends State<add> {
                   FloatingActionButton(
                     heroTag: generateRandomString(10),
                     onPressed: () {
-                      print('10');
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => bloodtest()));
                     },
                     shape: const StadiumBorder(
                         side: BorderSide(color: Colors.red, width: 4)),

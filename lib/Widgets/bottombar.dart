@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/add.dart';
 import 'package:flutter_application_1/screens/menu.dart';
+import 'dart:math';
+
+String generateRandomString(int len) {
+  var r = Random();
+  return String.fromCharCodes(
+      List.generate(len, (index) => r.nextInt(33) + 89));
+}
 
 class Publicbar extends StatefulWidget {
   String? text;
@@ -26,7 +33,7 @@ class _PublicbarState extends State<Publicbar> {
           height: 80,
           width: 80,
           child: FloatingActionButton(
-            heroTag: "add1",
+            heroTag: generateRandomString(5),
             // widget.text,
             onPressed: () {
               Navigator.push(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Widgets/appbar.dart';
 import 'package:flutter_application_1/Widgets/bottombar.dart';
 import 'package:flutter_application_1/Widgets/drawer.dart';
 
@@ -15,16 +16,14 @@ class _menuState extends State<menu> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Menu'),
-          backgroundColor: Colors.blue,
+        appBar: CustomAppBar(
+          title: 'menu',
+          backgroundColor: Colors.white,
         ),
-        drawer: Drawer(
+        drawer: const Drawer(
           child: drawer(),
         ),
-        bottomNavigationBar: Publicbar(
-          text: "add1",
-        ),
+        bottomNavigationBar: Publicbar(),
       ),
     );
   }

@@ -21,12 +21,12 @@ class _SlideitemState extends State<Slideitem> {
           slideList[widget.index!].title,
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 40,
-            color: Color.fromARGB(255, 50, 39, 88),
+            fontSize: 35,
+            color: Color.fromRGBO(24, 20, 97, 1),
           ),
         ),
         SizedBox(
-          height: 20,
+          height: 15,
         ),
         Text(
           slideList[widget.index!].description,
@@ -34,7 +34,7 @@ class _SlideitemState extends State<Slideitem> {
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Color.fromARGB(255, 255, 255, 255),
+            color: Color.fromRGBO(100, 118, 125, 1),
           ),
         ),
         SizedBox(

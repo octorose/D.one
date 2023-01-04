@@ -26,8 +26,8 @@ class _OnboardingState extends State<Onboarding> {
       width: currentindex == index ? 20 : 10,
       decoration: BoxDecoration(
         color: currentindex == index
-            ? Color.fromARGB(255, 50, 39, 88)
-            : Colors.grey,
+            ? Color.fromRGBO(42, 42, 192, 1)
+            : Color.fromRGBO(181, 215, 243, 1),
         borderRadius: BorderRadius.circular(5),
       ),
     );
@@ -38,7 +38,7 @@ class _OnboardingState extends State<Onboarding> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          color: Colors.blue[300],
+          color: Color.fromRGBO(198, 235, 249, 1),
         ),
         child: Column(
           children: [
@@ -101,8 +101,8 @@ class _OnboardingState extends State<Onboarding> {
                                     child: Text('skip',
                                         style: TextStyle(
                                             color:
-                                                Color.fromARGB(255, 50, 39, 88),
-                                            fontWeight: FontWeight.bold,
+                                                Color.fromRGBO(42, 42, 192, 1),
+                                            fontWeight: FontWeight.w500,
                                             letterSpacing: 1.5)),
                                   ),
                                   TextButton(
@@ -122,8 +122,8 @@ class _OnboardingState extends State<Onboarding> {
                                     child: Text('next',
                                         style: TextStyle(
                                             color:
-                                                Color.fromARGB(255, 50, 39, 88),
-                                            fontWeight: FontWeight.bold,
+                                                Color.fromRGBO(42, 42, 192, 1),
+                                            fontWeight: FontWeight.w500,
                                             letterSpacing: 1.5)),
                                   ),
                                 ],
@@ -133,12 +133,13 @@ class _OnboardingState extends State<Onboarding> {
                                 children: [
                                   ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                          textStyle: const TextStyle(
-                                            fontSize: 20,
-                                          ),
-                                          fixedSize: const Size(200, 50),
-                                          backgroundColor:
-                                              Color.fromARGB(255, 50, 39, 88)),
+                                        textStyle: const TextStyle(
+                                          fontSize: 20,
+                                        ),
+                                        fixedSize: const Size(200, 50),
+                                        backgroundColor:
+                                            Color.fromARGB(220, 42, 42, 192),
+                                      ),
                                       onPressed: (() {
                                         Navigator.pushNamed(context, 'login');
                                         Navigator.push(context,

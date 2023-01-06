@@ -96,7 +96,11 @@ class _OnboardingState extends State<Onboarding> {
                                       ),
                                     ),
                                     onPressed: () {
-                                      Navigator.pushNamed(context, 'login');
+                                      Navigator.push(context,
+                                          MaterialPageRoute(builder: (context) {
+                                        _updateSeen();
+                                        return LoginPage();
+                                      }));
                                     },
                                     child: Text('skip',
                                         style: TextStyle(
@@ -141,7 +145,7 @@ class _OnboardingState extends State<Onboarding> {
                                             Color.fromARGB(220, 42, 42, 192),
                                       ),
                                       onPressed: (() {
-                                        Navigator.pushNamed(context, 'login');
+                                        // Navigator.pushNamed(context, 'login');
                                         Navigator.push(context,
                                             MaterialPageRoute(
                                                 builder: (context) {
@@ -156,77 +160,6 @@ class _OnboardingState extends State<Onboarding> {
                 ],
               ),
             ),
-            // Container(
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     children: List.generate(
-            //       slideList.length,
-            //       (index) => buildDot(index: index),
-            //     ),
-            //   ),
-            // ),
-            // SizedBox(
-            //   height: 100,
-            // ),
-            // Container(
-            //     height: 40,
-            //     child: currentindex < slideList.length - 1
-            //         ? Row(
-            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //             children: [
-            //               TextButton(
-            //                 style: TextButton.styleFrom(
-            //                   textStyle: const TextStyle(
-            //                     fontSize: 20,
-            //                   ),
-            //                 ),
-            //                 onPressed: () {
-            //                   Navigator.pushNamed(context, 'login');
-            //                 },
-            //                 child: Text('skip',
-            //                     style: TextStyle(
-            //                         color: Color.fromARGB(255, 50, 39, 88),
-            //                         fontWeight: FontWeight.bold,
-            //                         letterSpacing: 1.5)),
-            //               ),
-            //               TextButton(
-            //                 style: TextButton.styleFrom(
-            //                   textStyle: const TextStyle(
-            //                     fontSize: 20,
-            //                   ),
-            //                 ),
-            //                 onPressed: () {
-            //                   if (currentindex < slideList.length - 1) {
-            //                     _pageController.nextPage(
-            //                         duration: const Duration(milliseconds: 300),
-            //                         curve: Curves.easeIn);
-            //                   }
-            //                 },
-            //                 child: Text('next',
-            //                     style: TextStyle(
-            //                         color: Color.fromARGB(255, 50, 39, 88),
-            //                         fontWeight: FontWeight.bold,
-            //                         letterSpacing: 1.5)),
-            //               ),
-            //             ],
-            //           )
-            //         : Row(
-            //             mainAxisAlignment: MainAxisAlignment.center,
-            //             children: [
-            //               ElevatedButton(
-            //                   style: ElevatedButton.styleFrom(
-            //                       textStyle: const TextStyle(
-            //                         fontSize: 20,
-            //                       ),
-            //                       fixedSize: const Size(200, 50),
-            //                       backgroundColor:
-            //                           Color.fromARGB(255, 50, 39, 88)),
-            //                   onPressed: (() {
-            //                     Navigator.pushNamed(context, 'login');
-            //                   }),
-            //                   child: Text('Get Started')),
-            //             ],
-            //           )),
           ],
         ),
       ),

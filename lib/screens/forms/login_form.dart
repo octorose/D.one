@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/Onboarding.dart';
 import 'package:flutter_application_1/screens/menu.dart';
+import 'package:flutter_application_1/screens/LogupPage.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -14,6 +15,14 @@ class _LoginFormState extends State<LoginForm> {
   var msge = "";
   GlobalKey<FormState> _numberForm = GlobalKey();
 
+  bool passwordVisible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    passwordVisible = true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -26,9 +35,7 @@ class _LoginFormState extends State<LoginForm> {
             height: 100,
             width: 100,
             // hat hana logo d-one
-            image: NetworkImage(
-              'https://img.icons8.com/3d-fluency/512/user-male-circle.png',
-            ),
+            image: AssetImage('assets/logo1.png'),
           ),
         ),
         Container(
@@ -81,20 +88,32 @@ class _LoginFormState extends State<LoginForm> {
                             decoration: InputDecoration(
                               hintStyle: TextStyle(fontSize: 20),
                               border: InputBorder.none,
-                              icon: Icon(Icons.person_outline_outlined),
+                              icon: Icon(Icons.email_outlined),
                               hintText: "Adress Email",
                             ),
                           ),
                         ),
                         Container(
                           margin: const EdgeInsets.only(left: 16, right: 32),
-                          child: const TextField(
-                            obscureText: true,
+                          child: TextField(
+                            obscureText: passwordVisible,
                             decoration: InputDecoration(
-                              hintStyle: TextStyle(fontSize: 22),
                               border: InputBorder.none,
+                              hintStyle: TextStyle(fontSize: 22),
                               icon: Icon(Icons.lock_outline_rounded),
                               hintText: "Password",
+                              suffixIcon: IconButton(
+                                icon: Icon(passwordVisible
+                                    ? Icons.visibility
+                                    : Icons.visibility_off),
+                                onPressed: () {
+                                  setState(
+                                    () {
+                                      passwordVisible = !passwordVisible;
+                                    },
+                                  );
+                                },
+                              ),
                             ),
                           ),
                         ),
@@ -141,7 +160,7 @@ class _LoginFormState extends State<LoginForm> {
                         }
                       },
                       icon: Icon(
-                        Icons.arrow_forward_outlined,
+                        Icons.arrow_forward_ios_outlined,
                         color: Colors.white,
                         size: 32,
                       ),
@@ -236,18 +255,37 @@ class _LoginFormState extends State<LoginForm> {
                   ],
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: const Text(
-                        "Don't Have An Account ?",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                          color: Color.fromARGB(255, 114, 112, 112),
+                    Row(
+                      children: [
+                        const Text(
+                          "New To D-one?",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Color.fromARGB(255, 114, 112, 112),
+                          ),
                         ),
-                      ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const LogupPage(),
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            "Sign Up Now",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Color.fromARGB(255, 4, 84, 134),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

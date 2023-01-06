@@ -100,7 +100,7 @@ class _LogupFormState extends State<LogupForm> {
                             decoration: InputDecoration(
                               hintStyle: TextStyle(fontSize: 20),
                               border: InputBorder.none,
-                              icon: Icon(Icons.email_outlined),
+                              icon: Icon(Icons.person_outline_rounded),
                               hintText: "Username",
                             ),
                           ),
@@ -136,7 +136,7 @@ class _LogupFormState extends State<LogupForm> {
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               hintStyle: TextStyle(fontSize: 22),
-                              icon: Icon(Icons.lock_outline_rounded),
+                              icon: Icon(Icons.lock_reset_outlined),
                               hintText: "Confirm Password",
                               suffixIcon: IconButton(
                                 icon: Icon(passwordVisible

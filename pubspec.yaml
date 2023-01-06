@@ -37,6 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   shared_preferences: ^2.0.15
   percent_indicator: ^4.0.1
+  tab_container: ^2.0.0
+  flutter_vector_icons: ^2.0.0
+  horizontal_center_date_picker: ^2.1.1
 
 dev_dependencies:
   flutter_test:

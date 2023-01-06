@@ -27,7 +27,9 @@ class _bloodtestState extends State<bloodtest> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: CustomAppBar(title: 'bloodtest', backgroundColor: Colors.white),
+        appBar: CustomAppBar(
+            title: 'bloodtest',
+            backgroundColor: Color.fromRGBO(250, 250, 250, 1)),
         drawer: Drawer(
           child: drawer(),
         ),
@@ -121,7 +123,7 @@ class _bloodtestState extends State<bloodtest> {
                 child: CircularPercentIndicator(
                   radius: 100,
                   lineWidth: 20.0,
-                  percent: (int.parse(blood) / 100),
+                  percent: (int.parse(blood) / 300),
                   progressColor: Color.fromRGBO(r, g, b, 1),
                   backgroundColor: Color.fromRGBO(r, g, b, 0.2),
                   circularStrokeCap: CircularStrokeCap.round,
@@ -130,15 +132,19 @@ class _bloodtestState extends State<bloodtest> {
             ),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(left: 160, right: 175),
+                padding: const EdgeInsets.only(left: 130, right: 140),
                 child: TextFormField(
+                  maxLength: 3,
                   decoration: InputDecoration(
-                    hintText: '- - -',
+                    counterText: '',
+                    hintText: '---',
+                    hintStyle: TextStyle(fontSize: 20, letterSpacing: 10),
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
                           width: 0, color: Colors.transparent), //<-- SEE HERE
                     ),
                   ),
+                  style: TextStyle(fontSize: 25),
                   keyboardType: TextInputType.number,
                   inputFormatters: <TextInputFormatter>[
                     // for below version 2 use this
@@ -157,20 +163,21 @@ class _bloodtestState extends State<bloodtest> {
                           print(double.parse(blood));
                           // blood = value;
                         } else {
-                          if (double.parse(blood) > 100) {
-                            blood = '100';
+                          if (double.parse(blood) > 300) {
+                            blood = '300';
                           }
                           print(double.parse(blood));
                         }
-                        if (double.parse(value) < 45) {
+                        if (double.parse(value) < 140) {
                           r = 0;
                           g = 255;
                           b = 0;
-                        } else if (double.parse(value) < 70) {
-                          r = 191;
-                          g = 149;
-                          b = 33;
-                        } else {
+                        } else if (double.parse(value) > 140 &&
+                            double.parse(value) < 160) {
+                          r = 255;
+                          g = 215;
+                          b = 0;
+                        } else if (double.parse(value) >= 160) {
                           r = 255;
                           g = 0;
                           b = 0;
@@ -184,7 +191,10 @@ class _bloodtestState extends State<bloodtest> {
             Center(
               child: Padding(
                 padding: const EdgeInsets.only(left: 40),
-                child: Text("mg/l"),
+                child: Text(
+                  "mg/l",
+                  style: TextStyle(fontSize: 20),
+                ),
               ),
             )
           ],

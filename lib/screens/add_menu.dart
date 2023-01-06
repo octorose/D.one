@@ -25,7 +25,8 @@ class _addState extends State<add> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: CustomAppBar(title: 'add', backgroundColor: Colors.white),
+        appBar: CustomAppBar(
+            title: 'add', backgroundColor: Color.fromRGBO(250, 250, 250, 1)),
         drawer: Drawer(
           child: drawer(),
         ),

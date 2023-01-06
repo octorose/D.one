@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/Onboarding.dart';
 import 'package:flutter_application_1/screens/menu.dart';
 import 'package:flutter_application_1/screens/LogupPage.dart';
+import 'package:flutter_application_1/screens/LoginPage.dart';
 
 class LogupForm extends StatefulWidget {
   const LogupForm({Key? key}) : super(key: key);
@@ -35,9 +36,7 @@ class _LogupFormState extends State<LogupForm> {
             height: 100,
             width: 100,
             // hat hana logo d-one
-            image: NetworkImage(
-              'https://img.icons8.com/3d-fluency/512/user-male-circle.png',
-            ),
+            image: AssetImage('assets/logo1.png'),
           ),
         ),
         Container(
@@ -234,7 +233,7 @@ class _LogupFormState extends State<LogupForm> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const LogupPage(),
+                                builder: (context) => const LoginPage(),
                               ),
                             );
                           },

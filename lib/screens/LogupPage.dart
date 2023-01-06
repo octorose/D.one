@@ -1,6 +1,7 @@
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/background/backgroundLogin.dart';
 import 'background/backgroundLogup.dart';
 import 'forms/LogupForm.dart';
 
@@ -20,7 +21,7 @@ class _LogupPageState extends State<LogupPage> {
       home: Scaffold(
         body: Stack(
           children: [
-            BackgroundLogup(),
+            BackgroundLogin(),
             const LogupForm(),
           ],
         ),

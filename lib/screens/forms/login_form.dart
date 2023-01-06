@@ -35,9 +35,7 @@ class _LoginFormState extends State<LoginForm> {
             height: 100,
             width: 100,
             // hat hana logo d-one
-            image: NetworkImage(
-              'https://img.icons8.com/3d-fluency/512/user-male-circle.png',
-            ),
+            image: AssetImage('assets/logo1.png'),
           ),
         ),
         Container(

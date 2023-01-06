@@ -2,12 +2,12 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class Background extends StatefulWidget {
+class BackgroundLogup extends StatefulWidget {
   @override
   _MyPainterState createState() => _MyPainterState();
 }
 
-class _MyPainterState extends State<Background> {
+class _MyPainterState extends State<BackgroundLogup> {
   @override
   void initState() {
     super.initState();
@@ -39,8 +39,8 @@ class Curved extends CustomPainter {
       end: Alignment.bottomRight,
       stops: [.01, .25],
       colors: [
-        Color.fromARGB(255, 115, 223, 231),
         Color.fromARGB(255, 4, 84, 134),
+        Color.fromARGB(255, 115, 223, 231),
       ],
     ).createShader(rect);
 
@@ -50,8 +50,8 @@ class Curved extends CustomPainter {
       end: Alignment.centerRight,
       stops: [.05, 1],
       colors: [
-        Color.fromARGB(255, 115, 223, 231),
         Color.fromARGB(255, 4, 84, 134),
+        Color.fromARGB(255, 115, 223, 231),
       ],
     ).createShader(rect);
 

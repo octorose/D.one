@@ -1,8 +1,8 @@
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import 'background/background.dart';
-import 'forms/login_form.dart';
+import 'background/backgroundLogup.dart';
+import 'forms/LogupForm.dart';
 
 class LogupPage extends StatefulWidget {
   const LogupPage({super.key});
@@ -20,8 +20,8 @@ class _LogupPageState extends State<LogupPage> {
       home: Scaffold(
         body: Stack(
           children: [
-            Background(),
-            const LoginForm(),
+            BackgroundLogup(),
+            const LogupForm(),
           ],
         ),
       ),

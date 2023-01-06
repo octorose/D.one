@@ -3,7 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/add_menu.dart';
 import 'package:flutter_application_1/screens/menu.dart';
-import 'background/background.dart';
+import 'background/backgroundLogin.dart';
 import 'forms/login_form.dart';
 
 class LoginPage extends StatefulWidget {
@@ -20,14 +20,13 @@ class _LoginPageState extends State<LoginPage> {
       routes: {
         "menu": (context) => menu(),
         "add": (context) => add(),
-        
       },
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       home: Scaffold(
         body: Stack(
           children: [
-            Background(),
+            BackgroundLogin(),
             const LoginForm(),
           ],
         ),

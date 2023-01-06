@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/menu.dart';
 import 'package:flutter_application_1/screens/Onboarding.dart';
+import 'package:flutter_application_1/screens/menu.dart';
+import 'package:flutter_application_1/screens/LogupPage.dart';
 
 class LogupForm extends StatefulWidget {
   const LogupForm({Key? key}) : super(key: key);
@@ -13,6 +14,14 @@ class _LogupFormState extends State<LogupForm> {
   var msg = TextEditingController();
   var msge = "";
   GlobalKey<FormState> _numberForm = GlobalKey();
+
+  bool passwordVisible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    passwordVisible = true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +41,9 @@ class _LogupFormState extends State<LogupForm> {
           ),
         ),
         Container(
-          margin: const EdgeInsets.only(bottom: 40),
+          margin: const EdgeInsets.only(bottom: 30),
           child: const Text(
-            "Sign In",
+            "Create Account",
             style: TextStyle(
               fontSize: 35,
               fontWeight: FontWeight.bold,
@@ -43,11 +52,11 @@ class _LogupFormState extends State<LogupForm> {
         ),
         Flexible(
           child: SizedBox(
-            height: 150,
+            height: 250,
             child: Stack(
               children: [
                 Container(
-                  height: 150,
+                  height: 250,
                   margin: const EdgeInsets.only(
                     right: 70,
                   ),
@@ -81,20 +90,67 @@ class _LogupFormState extends State<LogupForm> {
                             decoration: InputDecoration(
                               hintStyle: TextStyle(fontSize: 20),
                               border: InputBorder.none,
-                              icon: Icon(Icons.person_outline_outlined),
+                              icon: Icon(Icons.email_outlined),
                               hintText: "Adress Email",
                             ),
                           ),
                         ),
                         Container(
                           margin: const EdgeInsets.only(left: 16, right: 32),
-                          child: const TextField(
-                            obscureText: true,
+                          child: TextFormField(
                             decoration: InputDecoration(
-                              hintStyle: TextStyle(fontSize: 22),
+                              hintStyle: TextStyle(fontSize: 20),
                               border: InputBorder.none,
+                              icon: Icon(Icons.email_outlined),
+                              hintText: "Username",
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(left: 16, right: 32),
+                          child: TextField(
+                            obscureText: passwordVisible,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintStyle: TextStyle(fontSize: 22),
                               icon: Icon(Icons.lock_outline_rounded),
                               hintText: "Password",
+                              suffixIcon: IconButton(
+                                icon: Icon(passwordVisible
+                                    ? Icons.visibility
+                                    : Icons.visibility_off),
+                                onPressed: () {
+                                  setState(
+                                    () {
+                                      passwordVisible = !passwordVisible;
+                                    },
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(left: 16, right: 32),
+                          child: TextField(
+                            obscureText: passwordVisible,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintStyle: TextStyle(fontSize: 22),
+                              icon: Icon(Icons.lock_outline_rounded),
+                              hintText: "Confirm Password",
+                              suffixIcon: IconButton(
+                                icon: Icon(passwordVisible
+                                    ? Icons.visibility
+                                    : Icons.visibility_off),
+                                onPressed: () {
+                                  setState(
+                                    () {
+                                      passwordVisible = !passwordVisible;
+                                    },
+                                  );
+                                },
+                              ),
                             ),
                           ),
                         ),
@@ -135,13 +191,13 @@ class _LogupFormState extends State<LogupForm> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Onboarding(),
+                              builder: (context) => menu(),
                             ),
                           );
                         }
                       },
                       icon: Icon(
-                        Icons.arrow_forward_outlined,
+                        Icons.arrow_forward_ios_outlined,
                         color: Colors.white,
                         size: 32,
                       ),
@@ -152,102 +208,46 @@ class _LogupFormState extends State<LogupForm> {
             ),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Container(
-              margin: const EdgeInsets.only(right: 16, top: 16),
-              child: Text(
-                "Forgot Password ?",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.grey[400],
-                ),
-              ),
-            ),
-          ],
-        ),
         Container(
           margin: const EdgeInsets.only(top: 20),
-          padding: const EdgeInsets.symmetric(horizontal: 70),
           child: Center(
             child: Column(
               children: [
-                Row(
-                  children: [
-                    Flexible(
-                      child: Container(
-                        height: 1,
-                        width: 100,
-                        color: Colors.grey,
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        'Or Sign With',
-                        style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                    Flexible(
-                      child: Container(
-                        height: 1,
-                        width: 100,
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
+                SizedBox(
+                  height: 20,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  // ignore: prefer_const_literals_to_create_immutables
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.fromLTRB(0, 65, 0, 0),
-                    ),
-                    // ignore: prefer_const_constructors
-                    Image(
-                      height: 45,
-                      width: 45,
-                      image: const NetworkImage(
-                        'https://img.icons8.com/fluency/512/facebook-new.png',
-                      ),
-                    ),
-                    const SizedBox(width: 24),
-                    const Image(
-                      height: 45,
-                      width: 45,
-                      image: NetworkImage(
-                        'https://img.icons8.com/color/512/google-logo.png',
-                      ),
-                    ),
-                    const SizedBox(width: 24),
-                    const Image(
-                      height: 45,
-                      width: 45,
-                      image: NetworkImage(
-                        'https://img.icons8.com/fluency/512/twitter-circled.png',
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(right: 18, top: 10),
-                      child: const Text(
-                        "Don't Have An Account ?",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                          color: Color.fromARGB(255, 114, 112, 112),
+                    Column(
+                      children: [
+                        const Text(
+                          "By signing up, you accept our",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Color.fromARGB(255, 114, 112, 112),
+                          ),
                         ),
-                      ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const LogupPage(),
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            "Terms of Service",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Color.fromARGB(255, 4, 84, 134),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

@@ -29,6 +29,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  google_sign_in: ^5.4.2 
+  keyboard_visibility:  any
   flutter:
     sdk: flutter
 

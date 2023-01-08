@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/Onboarding.dart';
 import 'package:flutter_application_1/screens/menu.dart';
 import 'package:flutter_application_1/screens/LogupPage.dart';
+import 'package:keyboard_visibility/keyboard_visibility.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -13,14 +14,47 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   var msg = TextEditingController();
   var msge = "";
+  bool _isVisible = true;
   GlobalKey<FormState> _numberForm = GlobalKey();
-
+  bool _keyboardShowing = false;
   bool passwordVisible = false;
 
   @override
   void initState() {
     super.initState();
+    KeyboardVisibilityNotification().addNewListener(
+      onChange: (bool visiblelat) {
+        print(visiblelat);
+      },
+    );
     passwordVisible = true;
+  }
+
+  void showToast() {
+    setState(() {
+      _isVisible = true;
+    });
+  }
+
+  void HideToast() {
+    setState(() {
+      _isVisible = false;
+    });
+  }
+
+  void didChangeMetrics() {
+    final value = WidgetsBinding.instance.window.viewInsets.bottom;
+    if (value != 0) {
+      // Keyboard is showing
+      HideToast();
+    } else {
+      // Keyboard is not showing
+      showToast();
+      // setState(() {
+      //   _keyboardShowing = false;
+
+    }
+    ;
   }
 
   @override
@@ -31,22 +65,28 @@ class _LoginFormState extends State<LoginForm> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              margin: const EdgeInsets.only(bottom: 15),
-              child: const Image(
-                height: 120,
-                width: 120,
-                // hat hana logo d-one
-                image: AssetImage('assets/logo1.png'),
+            Visibility(
+              visible: _isVisible,
+              child: Container(
+                margin: const EdgeInsets.only(bottom: 15),
+                child: const Image(
+                  height: 120,
+                  width: 120,
+                  // hat hana logo d-one
+                  image: AssetImage('assets/logo1.png'),
+                ),
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(bottom: 40),
-              child: const Text(
-                "Welcome Back",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
+            Visibility(
+              visible: _isVisible,
+              child: Container(
+                margin: const EdgeInsets.only(bottom: 40),
+                child: const Text(
+                  "Welcome Back",
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -82,6 +122,10 @@ class _LoginFormState extends State<LoginForm> {
                           Container(
                             margin: const EdgeInsets.only(left: 16, right: 32),
                             child: TextFormField(
+                              onTap: () {
+                                didChangeMetrics();
+                              },
+                              textInputAction: TextInputAction.next,
                               controller: msg,
                               validator: (val) {
                                 if (val!.isEmpty) return "set your Email";
@@ -97,6 +141,11 @@ class _LoginFormState extends State<LoginForm> {
                           Container(
                             margin: const EdgeInsets.only(left: 16, right: 32),
                             child: TextField(
+                              onTap: () {
+                                if (_keyboardShowing) {
+                                  showToast();
+                                }
+                              },
                               obscureText: passwordVisible,
                               decoration: InputDecoration(
                                 border: InputBorder.none,

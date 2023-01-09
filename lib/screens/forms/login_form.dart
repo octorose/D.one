@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/Onboarding.dart';
 import 'package:flutter_application_1/screens/menu.dart';
 import 'package:flutter_application_1/screens/LogupPage.dart';
-import 'package:keyboard_visibility/keyboard_visibility.dart';
+// import 'package:keyboard_visibility/keyboard_visibility.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -15,24 +15,26 @@ class _LoginFormState extends State<LoginForm> {
   var msg = TextEditingController();
   var msge = "";
   bool _isVisible = true;
+  bool _BoxVisible = false;
+
   GlobalKey<FormState> _numberForm = GlobalKey();
   bool _keyboardShowing = false;
   bool passwordVisible = false;
 
   @override
-  void initState() {
-    super.initState();
-    KeyboardVisibilityNotification().addNewListener(
-      onChange: (bool visiblelat) {
-        print(visiblelat);
-      },
-    );
-    passwordVisible = true;
-  }
+  // void initState() {
+  //   super.initState();
+  //   KeyboardVisibilityNotification().addNewListener(
+  //     onChange: (bool visiblelat) {
+  //       print(visiblelat);
+  //     },
+  //   );
+  //   passwordVisible = true;
+  // }
 
   void showToast() {
     setState(() {
-      _isVisible = true;
+      _BoxVisible = true;
     });
   }
 
@@ -40,21 +42,6 @@ class _LoginFormState extends State<LoginForm> {
     setState(() {
       _isVisible = false;
     });
-  }
-
-  void didChangeMetrics() {
-    final value = WidgetsBinding.instance.window.viewInsets.bottom;
-    if (value != 0) {
-      // Keyboard is showing
-      HideToast();
-    } else {
-      // Keyboard is not showing
-      showToast();
-      // setState(() {
-      //   _keyboardShowing = false;
-
-    }
-    ;
   }
 
   @override
@@ -90,6 +77,24 @@ class _LoginFormState extends State<LoginForm> {
                 ),
               ),
             ),
+            // Visibility(
+            //   visible: _BoxVisible,
+            //   child: Container(
+            //     margin: const EdgeInsets.only(bottom: 40),
+            //     child: const Text(
+            //       "Waiting for Your",
+            //       style: TextStyle(
+            //         fontSize: 25,
+            //         fontWeight: FontWeight.bold,
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            Visibility(
+                visible: _BoxVisible,
+                child: SizedBox(
+                  height: 120,
+                )),
             SizedBox(
               height: 150,
               child: Stack(
@@ -123,7 +128,8 @@ class _LoginFormState extends State<LoginForm> {
                             margin: const EdgeInsets.only(left: 16, right: 32),
                             child: TextFormField(
                               onTap: () {
-                                didChangeMetrics();
+                                HideToast();
+                                showToast();
                               },
                               textInputAction: TextInputAction.next,
                               controller: msg,
@@ -142,9 +148,8 @@ class _LoginFormState extends State<LoginForm> {
                             margin: const EdgeInsets.only(left: 16, right: 32),
                             child: TextField(
                               onTap: () {
-                                if (_keyboardShowing) {
-                                  showToast();
-                                }
+                                HideToast();
+                                showToast();
                               },
                               obscureText: passwordVisible,
                               decoration: InputDecoration(
@@ -236,101 +241,104 @@ class _LoginFormState extends State<LoginForm> {
                 ),
               ],
             ),
-            Container(
-              margin: const EdgeInsets.only(top: 30),
-              padding: const EdgeInsets.symmetric(horizontal: 70),
-              child: Center(
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Flexible(
-                          child: Container(
-                            height: 1,
-                            width: 100,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Text(
-                            'Or Sign With',
-                            style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.w600,
+            Visibility(
+              visible: _isVisible,
+              child: Container(
+                margin: const EdgeInsets.only(top: 30),
+                padding: const EdgeInsets.symmetric(horizontal: 70),
+                child: Center(
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Flexible(
+                            child: Container(
+                              height: 1,
+                              width: 100,
+                              color: Colors.grey,
                             ),
                           ),
-                        ),
-                        Flexible(
-                          child: Container(
-                            height: 1,
-                            width: 100,
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      // ignore: prefer_const_literals_to_create_immutables
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.fromLTRB(0, 65, 0, 0),
-                        ),
-                        // ignore: prefer_const_constructors
-                        Image(
-                          height: 45,
-                          width: 45,
-                          image: AssetImage('assets/fb.png'),
-                        ),
-                        const SizedBox(width: 24),
-                        const Image(
-                            height: 45,
-                            width: 45,
-                            image: AssetImage('assets/google.png')),
-                        const SizedBox(width: 24),
-                        const Image(
-                            height: 45,
-                            width: 45,
-                            image: AssetImage('assets/twitpng.png')),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Row(
-                          children: [
-                            const Text(
-                              "New To D-one?",
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: Text(
+                              'Or Sign With',
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 25,
                                 fontWeight: FontWeight.w600,
-                                color: Color.fromARGB(255, 114, 112, 112),
                               ),
                             ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const LogupPage(),
-                                  ),
-                                );
-                              },
-                              child: const Text(
-                                "Sign Up Now",
+                          ),
+                          Flexible(
+                            child: Container(
+                              height: 1,
+                              width: 100,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.fromLTRB(0, 65, 0, 0),
+                          ),
+                          // ignore: prefer_const_constructors
+                          Image(
+                            height: 45,
+                            width: 45,
+                            image: AssetImage('assets/fb.png'),
+                          ),
+                          const SizedBox(width: 24),
+                          const Image(
+                              height: 45,
+                              width: 45,
+                              image: AssetImage('assets/google.png')),
+                          const SizedBox(width: 24),
+                          const Image(
+                              height: 45,
+                              width: 45,
+                              image: AssetImage('assets/twitpng.png')),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                            children: [
+                              const Text(
+                                "New To D-one?",
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w600,
-                                  color: Color.fromARGB(255, 4, 84, 134),
+                                  color: Color.fromARGB(255, 114, 112, 112),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const LogupPage(),
+                                    ),
+                                  );
+                                },
+                                child: const Text(
+                                  "Sign Up Now",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color.fromARGB(255, 4, 84, 134),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

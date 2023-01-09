@@ -13,13 +13,16 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   var msg = TextEditingController();
+  var msgpass = TextEditingController();
+
   var msge = "";
+  var msgpasse = "";
+
   bool _isVisible = true;
   bool _BoxVisible = false;
 
   GlobalKey<FormState> _numberForm = GlobalKey();
-  bool _keyboardShowing = false;
-  bool passwordVisible = false;
+  bool passwordVisible = true;
 
   @override
   // void initState() {
@@ -134,7 +137,8 @@ class _LoginFormState extends State<LoginForm> {
                               textInputAction: TextInputAction.next,
                               controller: msg,
                               validator: (val) {
-                                if (val!.isEmpty) return "set your Email";
+                                if (val!.isEmpty) return "complet Email";
+                                if (!val.contains("@")) return "Set Email";
                               },
                               decoration: InputDecoration(
                                 hintStyle: TextStyle(fontSize: 20),
@@ -146,12 +150,18 @@ class _LoginFormState extends State<LoginForm> {
                           ),
                           Container(
                             margin: const EdgeInsets.only(left: 16, right: 32),
-                            child: TextField(
+                            child: TextFormField(
                               onTap: () {
                                 HideToast();
                                 showToast();
                               },
                               obscureText: passwordVisible,
+                              controller: msgpass,
+                              validator: (val) {
+                                if (val!.isEmpty) return "Set Password";
+                                if (val.length < 8)
+                                  return "Password must be at least 8 characters";
+                              },
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintStyle: TextStyle(fontSize: 22),
@@ -159,8 +169,8 @@ class _LoginFormState extends State<LoginForm> {
                                 hintText: "Password",
                                 suffixIcon: IconButton(
                                   icon: Icon(passwordVisible
-                                      ? Icons.visibility
-                                      : Icons.visibility_off),
+                                      ? Icons.visibility_off
+                                      : Icons.visibility),
                                   onPressed: () {
                                     setState(
                                       () {
@@ -206,6 +216,7 @@ class _LoginFormState extends State<LoginForm> {
                         onPressed: () {
                           if (_numberForm.currentState!.validate()) {
                             msge = msg.text;
+                            msgpasse = msgpass.text;
                             Navigator.push(
                               context,
                               MaterialPageRoute(

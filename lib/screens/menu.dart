@@ -23,7 +23,7 @@ class _menuState extends State<menu> {
   Widget build(BuildContext context) {
     var now = DateTime.now();
     DateTime startDate = now.subtract(Duration(days: 14));
-    DateTime endDate = now.add(Duration(days: 7));
+    DateTime endDate = now.add(Duration(days: 0));
     print('startDate = $startDate ; endDate = $endDate');
     return MaterialApp(
       debugShowCheckedModeBanner: false,

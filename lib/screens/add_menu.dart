@@ -6,6 +6,8 @@ import 'package:flutter_application_1/screens/bloodtest.dart';
 import 'package:flutter_application_1/screens/menu.dart';
 import 'dart:math';
 
+import 'package:flutter_application_1/screens/sport.dart';
+
 String generateRandomString(int len) {
   var r = Random();
   return String.fromCharCodes(
@@ -104,6 +106,8 @@ class _addState extends State<add> {
                   FloatingActionButton(
                     heroTag: generateRandomString(7),
                     onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Sport()));
                       print('10');
                     },
                     shape: const StadiumBorder(

@@ -12,11 +12,37 @@ class LogupForm extends StatefulWidget {
 }
 
 class _LogupFormState extends State<LogupForm> {
-  var msg = TextEditingController();
-  var msge = "";
+  var msgUP = TextEditingController();
+  var msgEmailUP = TextEditingController();
+  var msgEUserUP = TextEditingController();
+  var msgpassUP = TextEditingController();
+  var msgconfpassUP = TextEditingController();
+
+  var msgUPe = "";
+  var msgpassUPe = "";
+  var msgconfpassUPe = "";
+  var msgEmailUPe = "";
+  var msgEUserUPe = "";
+
   GlobalKey<FormState> _numberForm = GlobalKey();
 
-  bool passwordVisible = false;
+  bool passwordVisible = true;
+  bool ConfirmpasswordVisible = true;
+
+  bool _isVisible = true;
+  bool _BoxVisible = false;
+
+  void showToast() {
+    setState(() {
+      _BoxVisible = true;
+    });
+  }
+
+  void HideToast() {
+    setState(() {
+      _isVisible = false;
+    });
+  }
 
   @override
   void initState() {
@@ -32,25 +58,36 @@ class _LogupFormState extends State<LogupForm> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                margin: const EdgeInsets.only(bottom: 15),
-                child: const Image(
-                  height: 100,
-                  width: 100,
-                  // hat hana logo d-one
-                  image: AssetImage('assets/logo1.png'),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(bottom: 80),
-                child: const Text(
-                  "Create Your Account",
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
+              Visibility(
+                visible: _isVisible,
+                child: Container(
+                  margin: const EdgeInsets.only(bottom: 15),
+                  child: const Image(
+                    height: 100,
+                    width: 100,
+                    // hat hana logo d-one
+                    image: AssetImage('assets/logo1.png'),
                   ),
                 ),
               ),
+              Visibility(
+                visible: _isVisible,
+                child: Container(
+                  margin: const EdgeInsets.only(bottom: 80),
+                  child: const Text(
+                    "Create Your Account",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              Visibility(
+                  visible: _BoxVisible,
+                  child: SizedBox(
+                    height: 210,
+                  )),
               SizedBox(
                 height: 250,
                 child: Stack(
@@ -84,9 +121,15 @@ class _LogupFormState extends State<LogupForm> {
                               margin:
                                   const EdgeInsets.only(left: 16, right: 32),
                               child: TextFormField(
-                                controller: msg,
+                                onTap: () {
+                                  HideToast();
+                                  showToast();
+                                },
+                                controller: msgUP,
                                 validator: (val) {
-                                  if (val!.isEmpty) return "set your Email";
+                                  if (val!.isEmpty) return "complet your Email";
+                                  if (!val.contains("@"))
+                                    return "Set your Email";
                                 },
                                 decoration: InputDecoration(
                                   hintStyle: TextStyle(fontSize: 20),
@@ -100,6 +143,14 @@ class _LogupFormState extends State<LogupForm> {
                               margin:
                                   const EdgeInsets.only(left: 16, right: 32),
                               child: TextFormField(
+                                onTap: () {
+                                  HideToast();
+                                  showToast();
+                                },
+                                controller: msgEUserUP,
+                                validator: (val) {
+                                  if (val!.isEmpty) return "complet Username";
+                                },
                                 decoration: InputDecoration(
                                   hintStyle: TextStyle(fontSize: 20),
                                   border: InputBorder.none,
@@ -111,7 +162,17 @@ class _LogupFormState extends State<LogupForm> {
                             Container(
                               margin:
                                   const EdgeInsets.only(left: 16, right: 32),
-                              child: TextField(
+                              child: TextFormField(
+                                onTap: () {
+                                  HideToast();
+                                  showToast();
+                                },
+                                controller: msgpassUP,
+                                validator: (val) {
+                                  if (val!.isEmpty) return "Set Password";
+                                  if (val.length < 8)
+                                    return "Password must be at least 8 characters";
+                                },
                                 obscureText: passwordVisible,
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
@@ -120,8 +181,8 @@ class _LogupFormState extends State<LogupForm> {
                                   hintText: "Password",
                                   suffixIcon: IconButton(
                                     icon: Icon(passwordVisible
-                                        ? Icons.visibility
-                                        : Icons.visibility_off),
+                                        ? Icons.visibility_off
+                                        : Icons.visibility),
                                     onPressed: () {
                                       setState(
                                         () {
@@ -136,21 +197,32 @@ class _LogupFormState extends State<LogupForm> {
                             Container(
                               margin:
                                   const EdgeInsets.only(left: 16, right: 32),
-                              child: TextField(
-                                obscureText: passwordVisible,
+                              child: TextFormField(
+                                onTap: () {
+                                  HideToast();
+                                  showToast();
+                                },
+                                controller: msgconfpassUP,
+                                validator: (val) {
+                                  if (val!.isEmpty) return "Set Password";
+                                  if (val.length < 8)
+                                    return "Password must be at least 8 characters";
+                                },
+                                obscureText: ConfirmpasswordVisible,
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintStyle: TextStyle(fontSize: 22),
                                   icon: Icon(Icons.lock_reset_outlined),
                                   hintText: "Confirm Password",
                                   suffixIcon: IconButton(
-                                    icon: Icon(passwordVisible
-                                        ? Icons.visibility
-                                        : Icons.visibility_off),
+                                    icon: Icon(ConfirmpasswordVisible
+                                        ? Icons.visibility_off
+                                        : Icons.visibility),
                                     onPressed: () {
                                       setState(
                                         () {
-                                          passwordVisible = !passwordVisible;
+                                          ConfirmpasswordVisible =
+                                              !ConfirmpasswordVisible;
                                         },
                                       );
                                     },
@@ -191,7 +263,11 @@ class _LogupFormState extends State<LogupForm> {
                         child: IconButton(
                           onPressed: () {
                             if (_numberForm.currentState!.validate()) {
-                              msge = msg.text;
+                              msgUPe = msgUP.text;
+                              msgpassUPe = msgpassUP.text;
+                              msgEUserUPe = msgEUserUP.text;
+                              msgconfpassUPe = msgconfpassUP.text;
+
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -222,40 +298,43 @@ class _LogupFormState extends State<LogupForm> {
                       SizedBox(
                         height: 20,
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Column(
-                            children: [
-                              const Text(
-                                "By signing up, you accept our",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600,
-                                  color: Color.fromARGB(255, 114, 112, 112),
-                                ),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => const LoginPage(),
-                                    ),
-                                  );
-                                },
-                                child: const Text(
-                                  "Terms of Service",
+                      Visibility(
+                        visible: _isVisible,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Column(
+                              children: [
+                                const Text(
+                                  "By signing up, you accept our",
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w600,
-                                    color: Color.fromARGB(255, 4, 84, 134),
+                                    color: Color.fromARGB(255, 114, 112, 112),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => const LoginPage(),
+                                      ),
+                                    );
+                                  },
+                                  child: const Text(
+                                    "Terms of Service",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color.fromARGB(255, 4, 84, 134),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),

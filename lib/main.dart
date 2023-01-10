@@ -6,7 +6,7 @@ import 'package:flutter_application_1/screens/menu.dart';
 import 'screens/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   bool? seen = prefs.getBool('seen');
@@ -17,19 +17,18 @@ void main() async{
     _screen = LoginPage();
   }
 
-  runApp( MyApp(_screen));
+  runApp(MyApp(_screen));
 }
 
 class MyApp extends StatelessWidget {
   final Widget _screen;
-  
-  MyApp(this._screen);
 
+  MyApp(this._screen);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return    MaterialApp(
+    return MaterialApp(
         routes: {
           "menu": (context) => menu(),
           "add": (context) => add(),

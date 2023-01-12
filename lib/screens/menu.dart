@@ -38,9 +38,9 @@ class _menuState extends State<menu> {
         bottomNavigationBar: Publicbar(),
         body: Center(
           child: Container(
-            margin: EdgeInsets.only(left: 20, right: 20),
-            height: 500,
-            width: 350,
+            margin: EdgeInsets.only(left: 20, right: 20, bottom: 30),
+            height: 495,
+            width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               color: Color.fromARGB(255, 255, 255, 255),
               borderRadius: BorderRadius.circular(20),
@@ -69,8 +69,8 @@ class _menuState extends State<menu> {
                           });
                         },
                         child: Container(
-                          width: 160,
-                          height: 200,
+                          width: (MediaQuery.of(context).size.width / 2) - 20,
+                          // height: 200,
                           // padding: EdgeInsets.only(top: 20),
                           decoration: BoxDecoration(
                             // border: Border(left: pos0==i)
@@ -161,7 +161,7 @@ class _menuState extends State<menu> {
                       ? GridView.count(
                           crossAxisCount: 2,
                           shrinkWrap: true,
-                          padding: EdgeInsets.all(5.0),
+                          padding: EdgeInsets.all(10.0),
                           crossAxisSpacing: 5.0,
                           mainAxisSpacing: 5.0,
                           children: [

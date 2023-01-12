@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Widgets/appbar.dart';
+import 'package:flutter_application_1/Widgets/back_button.dart';
 import 'package:flutter_application_1/Widgets/bottombar.dart';
 import 'package:flutter_application_1/Widgets/drawer.dart';
 import 'package:flutter_application_1/screens/bloodtest.dart';
@@ -35,38 +36,13 @@ class _addState extends State<add> {
         bottomNavigationBar: Publicbar(),
         body: Stack(
           children: [
-            OutlinedButton.icon(
-              onPressed: () {
+            backnext(
+              backvisible: "true",
+              nextvisible: "false",
+              pathback: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => menu()));
               },
-              icon: Icon(
-                Icons.arrow_back_ios_sharp,
-                shadows: <Shadow>[
-                  Shadow(
-                    offset: Offset(0.5, 0.5),
-                    blurRadius: 0.5,
-                    color: Color.fromARGB(255, 6, 80, 141),
-                  ),
-                ],
-              ),
-              label: Text(
-                'back',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 6, 80, 141),
-                  shadows: <Shadow>[
-                    Shadow(
-                      offset: Offset(0.5, 0.5),
-                      blurRadius: 0.5,
-                      color: Color.fromARGB(255, 6, 80, 141),
-                    ),
-                  ],
-                ),
-              ),
-              style: OutlinedButton.styleFrom(
-                primary: Color.fromARGB(255, 6, 80, 141),
-                side: BorderSide(color: Colors.transparent),
-              ),
             ),
             Center(
               child: GridView.count(

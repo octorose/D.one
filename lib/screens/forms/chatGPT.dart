@@ -1,38 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:local_auth/local_auth.dart';
 
-class chatGPT extends StatefulWidget {
-  @override
-  _chatGPTState createState() => _chatGPTState();
-}
-
-class _chatGPTState extends State<chatGPT> {
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
+class chatGPT extends StatelessWidget {
+  final LocalAuthentication _localAuthentication = LocalAuthentication();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: ElevatedButton(
-          child: Text('Sign in with Google'),
-          onPressed: () async {
-            try {
-              final GoogleSignInAccount? googleUser =
-                  await _googleSignIn.signIn();
-              final GoogleSignInAuthentication? googleAuth =
-                  await googleUser?.authentication;
-
-              print('Google User: ${googleUser?.displayName}');
-              print('Google Auth: ${googleAuth?.accessToken}');
-
-              // Now that we have the user's Google account, we can use it to sign in to your own app
-              // For example, you could use the Google account to sign in to Firebase
-            } catch (error) {
-              print(error);
-            }
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('Welcome to your app!'),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _authenticateWithFaceID,
+              child: Text('Log in with Face ID'),
+            ),
+          ],
         ),
       ),
     );
+  }
+
+  Future<void> _authenticateWithFaceID() async {
+    List<BiometricType> availableBiometrics =
+        await _localAuthentication.getAvailableBiometrics();
+    if (availableBiometrics.contains(BiometricType.face)) {
+      bool authenticated = false;
+      try {
+        authenticated = await _localAuthentication.authenticate(
+          localizedReason: 'Log in to your account',
+          // biometricOnly: true,
+          // useErrorDialogs: true,
+          // stickyAuth: true,
+        );
+      } catch (e) {
+        print(e);
+      }
+      if (authenticated) {
+        print('Authentication successful');
+      } else {
+        print('Authentication failed');
+      }
+    } else {
+      print('Face ID is not available on this device');
+    }
   }
 }

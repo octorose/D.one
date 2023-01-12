@@ -6,6 +6,7 @@ import 'package:flutter_application_1/screens/background/backgroundLogup.dart';
 import 'package:flutter_application_1/screens/menu.dart';
 import 'background/backgroundLogin.dart';
 import 'forms/login_form.dart';
+// import 'package:flutter_application_1/screens/forms/chatGPT.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -28,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
         body: Stack(
           children: [
             BackgroundLogup(),
-            const LoginForm(),
+            LoginForm(),
           ],
         ),
       ),

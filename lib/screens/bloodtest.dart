@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/Widgets/appbar.dart';
+import 'package:flutter_application_1/Widgets/back_button.dart';
 import 'package:flutter_application_1/Widgets/bottombar.dart';
 import 'package:flutter_application_1/Widgets/drawer.dart';
 import 'package:flutter_application_1/screens/add_menu.dart';
+import 'package:flutter_application_1/screens/menu.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'dart:math';
 
@@ -36,85 +38,14 @@ class _bloodtestState extends State<bloodtest> {
         bottomNavigationBar: Publicbar(),
         body: Stack(
           children: [
-            OutlinedButton.icon(
-              onPressed: () {
+            backnext(
+              backvisible: "true",
+              nextvisible: "true",
+              pathback: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => add()));
               },
-              icon: Icon(
-                Icons.arrow_back_ios_sharp,
-                shadows: <Shadow>[
-                  Shadow(
-                    offset: Offset(0.5, 0.5),
-                    blurRadius: 0.5,
-                    color: Color.fromARGB(255, 6, 80, 141),
-                  ),
-                ],
-              ),
-              label: Text(
-                'back',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 6, 80, 141),
-                  shadows: <Shadow>[
-                    Shadow(
-                      offset: Offset(0.5, 0.5),
-                      blurRadius: 0.5,
-                      color: Color.fromARGB(255, 6, 80, 141),
-                    ),
-                  ],
-                ),
-              ),
-              style: OutlinedButton.styleFrom(
-                primary: Color.fromARGB(255, 6, 80, 141),
-                side: BorderSide(color: Colors.transparent),
-              ),
-            ),
-            Positioned(
-              right: 0,
-              child: OutlinedButton.icon(
-                onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => add()));
-                },
-                label: Row(
-                  children: [
-                    Text(
-                      'next',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 6, 80, 141),
-                        shadows: <Shadow>[
-                          Shadow(
-                            offset: Offset(0.5, 0.5),
-                            blurRadius: 0.5,
-                            color: Color.fromARGB(255, 6, 80, 141),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Icon(
-                      Icons.arrow_forward_ios_outlined,
-                      shadows: <Shadow>[
-                        Shadow(
-                          offset: Offset(0.5, 0.5),
-                          blurRadius: 0.5,
-                          color: Color.fromARGB(255, 6, 80, 141),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                icon: Icon(
-                  Icons.arrow_forward_ios_outlined,
-                  color: Colors.transparent,
-                ),
-                style: OutlinedButton.styleFrom(
-                  primary: Color.fromARGB(255, 6, 80, 141),
-                  side: BorderSide(color: Colors.transparent),
-                ),
-              ),
+              pathnext: () {},
             ),
             Center(
               child: Transform(

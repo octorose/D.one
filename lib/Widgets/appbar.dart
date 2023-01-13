@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -12,6 +13,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }) : super(key: key);
   @override
   Size get preferredSize => const Size.fromHeight(120);
+  String? greeting = getGreetingTime(DateTime.now());
   @override
   Widget build(BuildContext context) {
     return PreferredSize(
@@ -44,7 +46,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: Text(
-                      'Good morning',
+                      greeting!,
                       style: TextStyle(
                           color: Color.fromARGB(255, 6, 80, 141), fontSize: 25),
                     ),
@@ -65,6 +67,32 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 }
 
+String? getGreetingTime(DateTime m) {
+  final greetings = {
+    'morning': 'Good Morning',
+    'evening': 'Good Evening',
+    'night': 'Good Afternoon',
+  };
+  String? g;
+
+  if (m == null) {
+    return '';
+  }
+
+  int splitAfternoon = 12;
+  int splitEvening = 17;
+  int currentHour = int.parse(DateFormat('HH').format(m));
+
+  if (currentHour >= splitAfternoon && currentHour <= splitEvening) {
+    g = greetings['night'];
+  } else if (currentHour >= splitEvening) {
+    g = greetings['evening'];
+  } else {
+    g = greetings['morning'];
+  }
+
+  return g;
+}
                           // TextButton(
                           //   onPressed: () {
                           //     Scaffold.of(context).openDrawer();

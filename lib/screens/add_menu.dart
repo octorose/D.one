@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Widgets/appbar.dart';
 import 'package:flutter_application_1/Widgets/back_button.dart';
 import 'package:flutter_application_1/Widgets/bottombar.dart';
+import 'package:flutter_application_1/Widgets/bottombar2.dart';
 import 'package:flutter_application_1/Widgets/drawer.dart';
 import 'package:flutter_application_1/screens/bloodtest.dart';
 import 'package:flutter_application_1/screens/menu.dart';
@@ -33,7 +34,7 @@ class _addState extends State<add> {
         drawer: Drawer(
           child: drawer(),
         ),
-        bottomNavigationBar: Publicbar(),
+        bottomNavigationBar: bottonbar(),
         body: Stack(
           children: [
             backnext(

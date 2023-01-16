@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Widgets/appbar.dart';
 import 'package:flutter_application_1/Widgets/bottombar.dart';
+import 'package:flutter_application_1/Widgets/bottombar2.dart';
 import 'package:flutter_application_1/Widgets/drawer.dart';
 import 'package:tab_container/tab_container.dart';
 import 'package:horizontal_center_date_picker/datepicker_controller.dart';
@@ -35,11 +36,11 @@ class _menuState extends State<menu> {
         drawer: const Drawer(
           child: drawer(),
         ),
-        bottomNavigationBar: Publicbar(),
+        bottomNavigationBar: bottonbar(),
         body: Center(
           child: Container(
-            margin: EdgeInsets.only(left: 20, right: 20, bottom: 30),
-            height: 495,
+            margin: EdgeInsets.only(left: 20, right: 20),
+            height: 460,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               color: Color.fromARGB(255, 255, 255, 255),
@@ -110,7 +111,7 @@ class _menuState extends State<menu> {
                 ),
                 Container(
                   width: double.infinity,
-                  height: 75,
+                  height: 65,
                   // color: Colors.white,
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 255, 255, 255),
@@ -123,15 +124,7 @@ class _menuState extends State<menu> {
                     children: [
                       Container(
                         alignment: Alignment.center,
-                        padding: EdgeInsets.only(top: 20),
-                        // color: Colors.white,
-                        // decoration: BoxDecoration(
-                        //   // color: Color.fromARGB(255, 255, 255, 255),
-                        //   borderRadius: BorderRadius.only(
-                        //     bottomLeft: Radius.circular(20),
-                        //     bottomRight: Radius.circular(20),
-                        //   ),
-                        // ),
+                        padding: EdgeInsets.only(top: 10),
                         child: pos0 == current
                             ? HorizontalDatePickerWidget(
                                 locale: 'en',
@@ -155,8 +148,6 @@ class _menuState extends State<menu> {
                 ),
                 Container(
                   width: double.infinity,
-                  height: 370,
-                  padding: EdgeInsets.only(top: 20),
                   child: pos0 == current
                       ? GridView.count(
                           crossAxisCount: 2,
@@ -176,25 +167,21 @@ class _menuState extends State<menu> {
                                 //   );
                                 // },
                               },
-                              child: SizedBox(
-                                width: 170,
-                                height: 170,
-                                child: Card(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      "Nutrition",
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: Color.fromRGBO(16, 39, 90, 1),
-                                      ),
+                              child: Card(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "Nutrition",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Color.fromRGBO(16, 39, 90, 1),
                                     ),
                                   ),
-                                  color: Color.fromRGBO(124, 217, 255, 1),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(20),
-                                    ),
+                                ),
+                                color: Color.fromRGBO(124, 217, 255, 1),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(20),
                                   ),
                                 ),
                               ),
@@ -211,25 +198,21 @@ class _menuState extends State<menu> {
                                 // },
                               },
                               // ignore: prefer_const_constructors
-                              child: SizedBox(
-                                width: 170,
-                                height: 170,
-                                child: Card(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      "Physical Activities",
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: Color.fromRGBO(16, 39, 90, 1),
-                                      ),
+                              child: Card(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "Physical Activities",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Color.fromRGBO(16, 39, 90, 1),
                                     ),
                                   ),
-                                  color: Color.fromRGBO(165, 174, 255, 1),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(20),
-                                    ),
+                                ),
+                                color: Color.fromRGBO(165, 174, 255, 1),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(20),
                                   ),
                                 ),
                               ),
@@ -245,25 +228,21 @@ class _menuState extends State<menu> {
                                 //   );
                                 // },
                               },
-                              child: SizedBox(
-                                width: 170,
-                                height: 170,
-                                child: Card(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      "Glucose",
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: Color.fromRGBO(16, 39, 90, 1),
-                                      ),
+                              child: Card(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "Glucose",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Color.fromRGBO(16, 39, 90, 1),
                                     ),
                                   ),
-                                  color: Color.fromRGBO(255, 163, 163, 1),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(20),
-                                    ),
+                                ),
+                                color: Color.fromRGBO(255, 163, 163, 1),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(20),
                                   ),
                                 ),
                               ),
@@ -279,25 +258,21 @@ class _menuState extends State<menu> {
                                 //   );
                                 // },
                               },
-                              child: SizedBox(
-                                width: 170,
-                                height: 170,
-                                child: Card(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      "Insuline",
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: Color.fromRGBO(16, 39, 90, 1),
-                                      ),
+                              child: Card(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "Insuline",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Color.fromRGBO(16, 39, 90, 1),
                                     ),
                                   ),
-                                  color: Color.fromRGBO(188, 244, 204, 1),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(20),
-                                    ),
+                                ),
+                                color: Color.fromRGBO(188, 244, 204, 1),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(20),
                                   ),
                                 ),
                               ),

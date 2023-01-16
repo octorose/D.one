@@ -34,6 +34,10 @@ class _bottonbarState extends State<bottonbar> {
           height: 80,
           width: 80,
           child: FloatingActionButton(
+            backgroundColor: Color.fromARGB(255, 120, 188, 243),
+            foregroundColor: Colors.white,
+            splashColor: Colors.blue,
+            focusColor: Colors.blue,
             heroTag: generateRandomString(5),
             // widget.text,
             onPressed: () {
@@ -56,25 +60,25 @@ class _bottonbarState extends State<bottonbar> {
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
+                  color: Color.fromARGB(117, 185, 184, 184).withOpacity(0.5),
                   spreadRadius: 5,
                   blurRadius: 7,
-                  offset: const Offset(0, 3), // changes position of shadow
+                  offset: Offset(5, 0), // changes position of shadow
                 ),
               ],
             ),
             child: BottomAppBar(
-              // elevation: 10,
+              elevation: 10,
               shape: CircularNotchedRectangle(),
-              color: Color.fromARGB(255, 118, 31, 31),
+              color: Color.fromARGB(185, 255, 255, 255),
               child: IconTheme(
                 data: IconThemeData(
-                  color: Colors.blue,
+                  color: Color.fromARGB(255, 102, 179, 243),
                   shadows: <Shadow>[
                     Shadow(
                       offset: Offset(1.0, 1.0),
-                      blurRadius: 3.0,
-                      color: Colors.grey,
+                      blurRadius: 4.0,
+                      color: Color.fromARGB(255, 187, 187, 187),
                     ),
                   ],
                 ),
@@ -89,7 +93,7 @@ class _bottonbarState extends State<bottonbar> {
                         onPressed: () {
                           print("4");
                         },
-                        icon: const Icon(Icons.settings),
+                        icon: const Icon(Icons.settings_outlined),
                       ),
                       IconButton(
                         highlightColor: Colors.transparent,
@@ -97,7 +101,7 @@ class _bottonbarState extends State<bottonbar> {
                         onPressed: () {
                           print("3");
                         },
-                        icon: const Icon(Icons.book),
+                        icon: const Icon(Icons.book_outlined),
                         padding: EdgeInsets.only(right: 50.0),
                       ),
                       IconButton(
@@ -106,7 +110,7 @@ class _bottonbarState extends State<bottonbar> {
                         onPressed: () {
                           print("2");
                         },
-                        icon: const Icon(Icons.notifications),
+                        icon: const Icon(Icons.notifications_outlined),
                         padding: EdgeInsets.only(left: 50.0),
                       ),
                       IconButton(

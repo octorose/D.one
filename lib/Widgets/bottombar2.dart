@@ -100,7 +100,7 @@ class _bottonbarState extends State<bottonbar> {
                             ),
                           );
                         },
-                        icon: const Icon(Icons.settings_outlined_outlined),
+                        icon: const Icon(Icons.settings_outlined),
                       ),
                       IconButton(
                         highlightColor: Colors.transparent,
@@ -108,7 +108,7 @@ class _bottonbarState extends State<bottonbar> {
                         onPressed: () {
                           print("3");
                         },
-                        icon: const Icon(Icons.book_outlined_outlined),
+                        icon: const Icon(Icons.book_outlined),
                         padding: EdgeInsets.only(right: 50.0),
                       ),
                       IconButton(
@@ -117,7 +117,7 @@ class _bottonbarState extends State<bottonbar> {
                         onPressed: () {
                           print("2");
                         },
-                        icon: const Icon(Icons.notifications_outlined_outlined),
+                        icon: const Icon(Icons.notifications_outlined),
                         padding: EdgeInsets.only(left: 50.0),
                       ),
                       IconButton(

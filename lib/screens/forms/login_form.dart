@@ -4,6 +4,7 @@ import 'package:flutter_application_1/screens/menu.dart';
 import 'package:flutter_application_1/screens/LogupPage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_application_1/screens/Setting.dart';
+import 'package:flutter_application_1/screens/UploadImg.dart';
 
 // import 'package:keyboard_visibility/keyboard_visibility.dart';
 
@@ -333,7 +334,7 @@ class _LoginFormState extends State<LoginForm> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => SetteingPage(),
+                                        builder: (context) => UploadImgPage(),
                                       ),
                                     );
                                   },

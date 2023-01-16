@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/add_menu.dart';
 import 'package:flutter_application_1/screens/menu.dart';
+import 'package:flutter_application_1/screens/Setting.dart';
 import 'dart:math';
 
 String generateRandomString(int len) {
@@ -29,6 +30,7 @@ class _bottonbarState extends State<bottonbar> {
       height: 80,
       width: 80,
       child: Scaffold(
+        extendBody: true,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: Container(
           height: 80,
@@ -46,7 +48,7 @@ class _bottonbarState extends State<bottonbar> {
                 MaterialPageRoute(builder: (context) => add()),
               );
             },
-            child: const Icon(Icons.add),
+            child: const Icon(Icons.add_outlined),
           ),
         ),
         bottomNavigationBar: ClipRRect(
@@ -91,9 +93,14 @@ class _bottonbarState extends State<bottonbar> {
                         highlightColor: Colors.transparent,
                         splashColor: Colors.transparent,
                         onPressed: () {
-                          print("4");
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SetteingPage(),
+                            ),
+                          );
                         },
-                        icon: const Icon(Icons.settings_outlined),
+                        icon: const Icon(Icons.settings_outlined_outlined),
                       ),
                       IconButton(
                         highlightColor: Colors.transparent,
@@ -101,7 +108,7 @@ class _bottonbarState extends State<bottonbar> {
                         onPressed: () {
                           print("3");
                         },
-                        icon: const Icon(Icons.book_outlined),
+                        icon: const Icon(Icons.book_outlined_outlined),
                         padding: EdgeInsets.only(right: 50.0),
                       ),
                       IconButton(
@@ -110,7 +117,7 @@ class _bottonbarState extends State<bottonbar> {
                         onPressed: () {
                           print("2");
                         },
-                        icon: const Icon(Icons.notifications_outlined),
+                        icon: const Icon(Icons.notifications_outlined_outlined),
                         padding: EdgeInsets.only(left: 50.0),
                       ),
                       IconButton(

@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_1/Widgets/appbar.dart';
+import 'package:flutter_application_1/Widgets/back_button.dart';
 import 'package:flutter_application_1/Widgets/bottombar.dart';
 import 'package:flutter_application_1/Widgets/drawer.dart';
 import 'package:flutter_application_1/Widgets/sportdata.dart';
 import 'package:flutter_application_1/Widgets/time.dart';
+import 'package:flutter_application_1/screens/add_menu.dart';
 //TODO
 // BIND THE DATA TO THE DROPDOWN BUTTON AND THE ICONS
 // ADD THE ICONS TO THE TOP OF DROPDOWN BUTTON
@@ -33,7 +35,7 @@ class _SportState extends State<Sport> {
     Icons.directions_bike,
     Icons.directions_walk
   ];
-
+  var cani = 'false';
   @override
   Widget build(BuildContext context) {
     var deviceWidth = MediaQuery.of(context).size.width;
@@ -51,6 +53,24 @@ class _SportState extends State<Sport> {
           body: Stack(
             children: [
               Positioned(
+                  child: backnext(
+                backvisible: "true",
+                nextvisible: cani,
+                pathback: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => add()),
+                  );
+                },
+                pathnext: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => add()),
+                  );
+                },
+              )),
+              Positioned(
+                top: 50,
                 left: 0,
                 right: 0,
                 child: Icon(
@@ -60,7 +80,7 @@ class _SportState extends State<Sport> {
                 ),
               ),
               Positioned(
-                top: 150,
+                top: 200,
                 left: 30,
                 right: 30,
                 height: 50,
@@ -133,12 +153,16 @@ class _SportState extends State<Sport> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 30),
+                padding: const EdgeInsets.only(top: 100),
                 child: CupertinoTimerPicker(
                   mode: CupertinoTimerPickerMode.hm,
                   onTimerDurationChanged: (value) {
                     setState(() {
                       this.value = value.toString();
+                      if (this.value != '00:00:00.000000' &&
+                          _selectedsport != null) {
+                        cani = 'true';
+                      }
                     });
                   },
                 ),

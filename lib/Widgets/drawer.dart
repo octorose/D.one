@@ -11,15 +11,93 @@ class _drawerState extends State<drawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      
       child: ListView(
+        // ignore: prefer_const_literals_to_create_immutables
         children: [
-          myList("Home", Icons.home, 0),
-          myList("Inbox", Icons.mail, 1),
-          myList("Sent Items", Icons.send, 2),
-          myList("Profile", Icons.person, 3),
-          myList("Settings", Icons.settings, 4),
-          myList("Calendar", Icons.calendar_today, 5),
+          const UserAccountsDrawerHeader(
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 8, 132, 204),
+              image: DecorationImage(
+                image: NetworkImage(
+                  "https://1.cms.s81c.com/sites/default/files/styles/ibm_cloud_wide_background/public/2020-10-27/Learn%20Leadspace%203.jpg?itok=TA5pjk1g",
+                ),
+              ),
+            ),
+            accountName: Text(
+              "oussama Boussaid",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            accountEmail: Text(
+              "oussama.boussaid@gmail.com",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            currentAccountPicture: CircleAvatar(
+              backgroundImage: NetworkImage(
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTRgLADYMKqWTxnKRAcgCI9PvY0Mq1JZXDFCAfsX68DWfWHZx8ZqqC8BM7MhaURnsi57I&usqp=CAU"),
+            ),
+          ),
+          ListTile(
+            leading:
+                const Icon(Icons.home, color: Color.fromARGB(255, 8, 132, 204)),
+            title: const Text('Home', style: TextStyle(fontSize: 16.0)),
+            onTap: () {
+              Navigator.pushNamed(context, 'home');
+            },
+          ),
+          ListTile(
+            leading:
+                const Icon(Icons.mail, color: Color.fromARGB(255, 8, 132, 204)),
+            title: const Text('Inbox', style: TextStyle(fontSize: 16.0)),
+            onTap: () {
+              Navigator.pushNamed(context, 'mail');
+            },
+          ),
+          ListTile(
+            leading:
+                const Icon(Icons.send, color: Color.fromARGB(255, 8, 132, 204)),
+            title: const Text('Sent items', style: TextStyle(fontSize: 16.0)),
+            onTap: () {
+              Navigator.pushNamed(context, 'sendItem');
+            },
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.person,
+              color: Color.fromARGB(255, 8, 132, 204),
+            ),
+            title: const Text('Profile', style: TextStyle(fontSize: 16.0)),
+            onTap: () {
+              Navigator.pushNamed(context, 'profile');
+            },
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.settings,
+              color: Color.fromARGB(255, 8, 132, 204),
+            ),
+            title: const Text(
+              'Settings',
+              style: TextStyle(fontSize: 16.0),
+            ),
+            trailing: Icon(Icons.arrow_right),
+            onTap: () {
+              Navigator.pushNamed(context, 'settings');
+            },
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.calendar_today,
+              color: Color.fromARGB(255, 8, 132, 204),
+            ),
+            title: const Text('Calendar', style: TextStyle(fontSize: 16.0)),
+            onTap: () {
+              Navigator.pushNamed(context, 'calendar');
+            },
+          ),
         ],
       ),
     );

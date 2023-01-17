@@ -25,7 +25,7 @@ class _homeState extends State<home> {
           "login": (context) => LoginPage(),
         },
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'D-one',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),

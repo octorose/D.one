@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'Google_sign_in.dart';
 
-class chatGPT extends StatefulWidget {
+class google_sign_in extends StatefulWidget {
   @override
-  _chatGPTState createState() => _chatGPTState();
+  _google_sign_inState createState() => _google_sign_inState();
 }
 
-class _chatGPTState extends State<chatGPT> {
+class _google_sign_inState extends State<google_sign_in> {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   @override
@@ -24,6 +25,10 @@ class _chatGPTState extends State<chatGPT> {
 
               print('Google User: ${googleUser?.displayName}');
               print('Google Auth: ${googleAuth?.accessToken}');
+
+              if (googleUser?.displayName != null) {
+                Navigator.pushNamed(context, 'menu');
+              }
 
               // Now that we have the user's Google account, we can use it to sign in to your own app
               // For example, you could use the Google account to sign in to Firebase

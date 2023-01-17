@@ -5,6 +5,8 @@ import 'package:flutter_application_1/screens/LogupPage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_application_1/screens/Setting.dart';
 import 'package:flutter_application_1/screens/UploadImg.dart';
+import 'Google_sign_in.dart';
+import 'package:flutter_application_1/Widgets/uploadimageWid.dart';
 
 // import 'package:keyboard_visibility/keyboard_visibility.dart';
 
@@ -18,6 +20,7 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   var msg = TextEditingController();
   var msgpass = TextEditingController();
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   var msge = "";
   var msgpasse = "";
@@ -305,10 +308,34 @@ class _LoginFormState extends State<LoginForm> {
                               image: AssetImage('assets/fb.png'),
                             ),
                             const SizedBox(width: 24),
-                            const Image(
-                                height: 45,
-                                width: 45,
-                                image: AssetImage('assets/google.png')),
+                            GestureDetector(
+                              onTap: () async {
+                                try {
+                                  final GoogleSignInAccount? googleUser =
+                                      await _googleSignIn.signIn();
+                                  final GoogleSignInAuthentication? googleAuth =
+                                      await googleUser?.authentication;
+
+                                  print(
+                                      'Google User: ${googleUser?.displayName}');
+                                  print(
+                                      'Google Auth: ${googleAuth?.accessToken}');
+
+                                  if (googleUser?.displayName != null) {
+                                    Navigator.pushNamed(context, 'menu');
+                                  }
+
+                                  // Now that we have the user's Google account, we can use it to sign in to your own app
+                                  // For example, you could use the Google account to sign in to Firebase
+                                } catch (error) {
+                                  print(error);
+                                }
+                              },
+                              child: Image(
+                                  height: 45,
+                                  width: 45,
+                                  image: AssetImage('assets/google.png')),
+                            ),
                             const SizedBox(width: 24),
                             const Image(
                                 height: 45,
@@ -334,7 +361,7 @@ class _LoginFormState extends State<LoginForm> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => UploadImgPage(),
+                                        builder: (context) => Livecam(),
                                       ),
                                     );
                                   },

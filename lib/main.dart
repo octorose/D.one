@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           "login": (context) => LoginPage(),
         },
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'D-one',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),

@@ -8,7 +8,8 @@ import 'package:horizontal_center_date_picker/datepicker_controller.dart';
 import 'package:horizontal_center_date_picker/horizontal_date_picker.dart';
 
 class menu extends StatefulWidget {
-  const menu({super.key});
+  String? UserName;
+  menu({this.UserName});
 
   @override
   State<menu> createState() => _menuState();
@@ -26,6 +27,8 @@ class _menuState extends State<menu> {
     DateTime startDate = now.subtract(Duration(days: 14));
     DateTime endDate = now.add(Duration(days: 0));
     print('startDate = $startDate ; endDate = $endDate');
+    print("menu");
+    print(widget.UserName);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -36,7 +39,9 @@ class _menuState extends State<menu> {
         drawer: const Drawer(
           child: drawer(),
         ),
-        bottomNavigationBar: bottonbar(),
+        bottomNavigationBar: bottonbar(
+          UserName: widget.UserName,
+        ),
         body: Center(
           child: Container(
             margin: EdgeInsets.only(left: 20, right: 20),

@@ -12,8 +12,9 @@ String generateRandomString(int len) {
 
 class bottonbar extends StatefulWidget {
   String? text;
-  bottonbar({Key? key, this.text}) : super(key: key);
+  String? UserName;
 
+  bottonbar({Key? key, this.text, this.UserName}) : super(key: key);
   @override
   State<bottonbar> createState() => _bottonbarState();
 }
@@ -25,6 +26,9 @@ class _bottonbarState extends State<bottonbar> {
   }
 
   Widget build(BuildContext context) {
+    print("bottombar");
+    print(widget.UserName);
+
     return Container(
       margin: EdgeInsets.only(bottom: 10, left: 10.0, right: 10.0),
       height: 80,
@@ -96,7 +100,8 @@ class _bottonbarState extends State<bottonbar> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => SetteingPage(),
+                              builder: (context) =>
+                                  SetteingPage(username: widget.UserName),
                             ),
                           );
                         },

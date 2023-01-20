@@ -24,6 +24,8 @@ class _LogupFormState extends State<LogupForm> {
   var msgEmailUPe = "";
   var msgEUserUPe = "";
 
+  // final  msgEUserUPe = "";
+
   GlobalKey<FormState> _numberForm = GlobalKey();
 
   bool passwordVisible = true;
@@ -97,7 +99,7 @@ class _LogupFormState extends State<LogupForm> {
                       height: 50,
                     )),
                 SizedBox(
-                  height: 200,
+                  height: 220,
                   child: Stack(
                     children: [
                       Container(
@@ -273,17 +275,20 @@ class _LogupFormState extends State<LogupForm> {
                           child: IconButton(
                             onPressed: () {
                               if (_numberForm.currentState!.validate()) {
-                                msgUPe = msgUP.text;
-                                msgpassUPe = msgpassUP.text;
-                                msgEUserUPe = msgEUserUP.text;
-                                msgconfpassUPe = msgconfpassUP.text;
-
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => menu(),
-                                  ),
-                                );
+                                setState(() {
+                                  msgUPe = msgUP.text;
+                                  msgpassUPe = msgpassUP.text;
+                                  msgconfpassUPe = msgconfpassUP.text;
+                                  msgEUserUPe = msgEUserUP.text;
+                                  print(msgEUserUPe);
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          menu(UserName: msgEUserUPe),
+                                    ),
+                                  );
+                                });
                               }
                             },
                             icon: Icon(

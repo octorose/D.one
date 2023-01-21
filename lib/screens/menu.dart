@@ -25,7 +25,6 @@ class _menuState extends State<menu> {
     var now = DateTime.now();
     DateTime startDate = now.subtract(Duration(days: 14));
     DateTime endDate = now.add(Duration(days: 0));
-    print('startDate = $startDate ; endDate = $endDate');
     print("menu");
     print(widget.UserName);
     // print('startDate = $startDate ; endDate = $endDate');

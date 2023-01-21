@@ -24,13 +24,13 @@ class _drawerState extends State<drawer> {
               ),
             ),
             accountName: Text(
-              "oussama Boussaid",
+              "Octaros",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
               ),
             ),
             accountEmail: Text(
-              "oussama.boussaid@gmail.com",
+              "Octaros@kanhana.ma",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
               ),
@@ -51,7 +51,7 @@ class _drawerState extends State<drawer> {
           ListTile(
             leading:
                 const Icon(Icons.mail, color: Color.fromARGB(255, 8, 132, 204)),
-            title: const Text('Inbox', style: TextStyle(fontSize: 16.0)),
+            title: const Text('presentation', style: TextStyle(fontSize: 16.0)),
             onTap: () {
               Navigator.pushNamed(context, 'mail');
             },
@@ -59,7 +59,7 @@ class _drawerState extends State<drawer> {
           ListTile(
             leading:
                 const Icon(Icons.send, color: Color.fromARGB(255, 8, 132, 204)),
-            title: const Text('Sent items', style: TextStyle(fontSize: 16.0)),
+            title: const Text('Notification', style: TextStyle(fontSize: 16.0)),
             onTap: () {
               Navigator.pushNamed(context, 'sendItem');
             },

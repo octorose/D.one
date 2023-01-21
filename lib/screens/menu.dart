@@ -7,7 +7,8 @@ import 'package:flutter_application_1/screens/Menus_Screen/menu2.dart';
 import 'package:horizontal_center_date_picker/datepicker_controller.dart';
 
 class menu extends StatefulWidget {
-  const menu({super.key});
+  String? UserName;
+  menu({this.UserName});
 
   @override
   State<menu> createState() => _menuState();
@@ -24,6 +25,9 @@ class _menuState extends State<menu> {
     var now = DateTime.now();
     DateTime startDate = now.subtract(Duration(days: 14));
     DateTime endDate = now.add(Duration(days: 0));
+    print('startDate = $startDate ; endDate = $endDate');
+    print("menu");
+    print(widget.UserName);
     // print('startDate = $startDate ; endDate = $endDate');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -35,7 +39,9 @@ class _menuState extends State<menu> {
         drawer: const Drawer(
           child: drawer(),
         ),
-        bottomNavigationBar: bottonbar(),
+        bottomNavigationBar: bottonbar(
+          UserName: widget.UserName,
+        ),
         body: Center(
           child: Container(
             margin: EdgeInsets.only(left: 20, right: 20),

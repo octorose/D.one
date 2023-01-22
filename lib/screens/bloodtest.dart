@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/Widgets/appbar.dart';
 import 'package:flutter_application_1/Widgets/back_button.dart';
-import 'package:flutter_application_1/Widgets/bottombar.dart';
 import 'package:flutter_application_1/Widgets/bottombar2.dart';
 import 'package:flutter_application_1/Widgets/drawer.dart';
 import 'package:flutter_application_1/screens/add_menu.dart';

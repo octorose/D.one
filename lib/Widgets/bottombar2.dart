@@ -26,7 +26,6 @@ class _bottonbarState extends State<bottonbar> {
   }
 
   Widget build(BuildContext context) {
-    print("bottombar");
     print(widget.UserName);
 
     return Container(

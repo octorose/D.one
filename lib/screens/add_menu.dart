@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Widgets/appbar.dart';
 import 'package:flutter_application_1/Widgets/back_button.dart';
-import 'package:flutter_application_1/Widgets/bottombar.dart';
 import 'package:flutter_application_1/Widgets/bottombar2.dart';
 import 'package:flutter_application_1/Widgets/drawer.dart';
 import 'package:flutter_application_1/screens/bloodtest.dart';
+import 'package:flutter_application_1/screens/food.dart';
 import 'package:flutter_application_1/screens/menu.dart';
 import 'dart:math';
 
@@ -56,7 +56,9 @@ class _addState extends State<add> {
                   FloatingActionButton(
                     heroTag: generateRandomString(5),
                     onPressed: () {
-                      print('10');
+                      print('to food');
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Food()));
                     },
                     shape: const StadiumBorder(
                         side: BorderSide(color: Colors.blue, width: 4)),
@@ -85,7 +87,7 @@ class _addState extends State<add> {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => Sport()));
-                      print('10');
+                      print('to sport');
                     },
                     shape: const StadiumBorder(
                         side: BorderSide(color: Colors.indigo, width: 4)),
@@ -140,7 +142,7 @@ class _addState extends State<add> {
                   FloatingActionButton(
                     heroTag: generateRandomString(12),
                     onPressed: () {
-                      print('10');
+                      print('to injection');
                     },
                     shape: const StadiumBorder(
                         side: BorderSide(color: Colors.green, width: 4)),

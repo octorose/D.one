@@ -17,8 +17,6 @@ class _SetteingPageState extends State<SetteingPage> {
   @override
   Widget build(BuildContext context) {
     var Userimg = "assets/hatim1.jpeg";
-
-    print("setting");
     print(widget.username);
     return Scaffold(
       backgroundColor: Colors.white,

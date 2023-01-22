@@ -33,15 +33,7 @@ class _LoginFormState extends State<LoginForm> {
   bool _keyboardVisible = false;
 
   @override
-  // void initState() {
-  //   super.initState();
-  //   KeyboardVisibilityNotification().addNewListener(
-  //     onChange: (bool visiblelat) {
-  //       print(visiblelat);
-  //     },
-  //   );
-  //   passwordVisible = true;
-  // }
+
 
   void showToast() {
     setState(() {
@@ -58,7 +50,6 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    // print(_keyboardVisible);
     _keyboardVisible = MediaQuery.of(context).viewInsets.bottom == 0;
     print(_keyboardVisible);
     return GestureDetector(

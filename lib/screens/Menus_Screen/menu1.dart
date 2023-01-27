@@ -56,6 +56,7 @@ class _menu1State extends State<menu1> {
         ),
         Container(
           width: double.infinity,
+          // height: double.infinity,
           child: GridView.count(
             crossAxisCount: 2,
             shrinkWrap: true,

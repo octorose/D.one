@@ -45,7 +45,7 @@ class _menuState extends State<menu> {
         body: Center(
           child: Container(
             margin: EdgeInsets.only(left: 20, right: 20),
-            height: 460,
+            height: (MediaQuery.of(context).size.height) / 1.67,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               color: Color.fromARGB(255, 255, 255, 255),

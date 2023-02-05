@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Widgets/bottombar2.dart';
 import 'package:flutter_application_1/Widgets/Slide.dart';
+import 'package:flutter_application_1/screens/menu.dart';
 
 class SetteingPage extends StatefulWidget {
   String? username;
 
   SetteingPage({
-    required this.username,
+    this.username,
   });
 
   @override
@@ -16,7 +17,7 @@ class SetteingPage extends StatefulWidget {
 class _SetteingPageState extends State<SetteingPage> {
   @override
   Widget build(BuildContext context) {
-    var Userimg = "assets/hatim1.jpeg";
+    var Userimg = "assets/hatime.png";
     print(widget.username);
     return Scaffold(
       backgroundColor: Colors.white,
@@ -67,7 +68,7 @@ class _SetteingPageState extends State<SetteingPage> {
                       Container(
                         margin: EdgeInsets.only(left: 20.0),
                         child: Text(
-                          widget.username.toString(),
+                          "Octaros",
                           style: TextStyle(
                             fontSize: 30.0,
                             fontWeight: FontWeight.bold,

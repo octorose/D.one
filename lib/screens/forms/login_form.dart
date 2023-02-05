@@ -33,8 +33,6 @@ class _LoginFormState extends State<LoginForm> {
   bool _keyboardVisible = false;
 
   @override
-
-
   void showToast() {
     setState(() {
       _BoxVisible = true;
@@ -352,7 +350,7 @@ class _LoginFormState extends State<LoginForm> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => LogupPage(),
+                                        builder: (context) => UploadImgPage(),
                                       ),
                                     );
                                   },

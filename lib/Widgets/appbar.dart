@@ -26,16 +26,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 265.0),
-                child: IconButton(
-                  icon: Image.asset(
-                    'assets/person.png',
-                    fit: BoxFit.contain,
-                    height: 45,
-                  ),
-                  iconSize: 45,
-                  onPressed: () {
+                child: GestureDetector(
+                  onTap: () {
                     Scaffold.of(context).openDrawer();
                   },
+                  child: CircleAvatar(
+                    radius: 30.0,
+                    backgroundImage: AssetImage("assets/hatime.png"),
+                  ),
                 ),
               ),
               Container(

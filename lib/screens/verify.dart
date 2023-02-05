@@ -39,7 +39,7 @@ class _MyVerifyState extends State<MyVerify> {
         color: Color.fromRGBO(234, 239, 243, 1),
       ),
     );
-    
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -96,15 +96,14 @@ class _MyVerifyState extends State<MyVerify> {
                   height: 30,
                 ),
                 Pinput(
-                    length: 6,
-                    onChanged: (value) {
-                      setState(() {
-                        code = value;
-                      });
-                    },
-                    showCursor: true,
-                 
-                    ),
+                  length: 6,
+                  onChanged: (value) {
+                    setState(() {
+                      code = value;
+                    });
+                  },
+                  showCursor: true,
+                ),
                 SizedBox(
                   height: 20,
                 ),

@@ -14,9 +14,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-    await Firebase.initializeApp(
+  await Firebase.initializeApp(
       // options: DefaultFirebaseOptions.currentPlatform,
-    );
+      );
   SharedPreferences prefs = await SharedPreferences.getInstance();
   bool? seen = prefs.getBool('seen');
   Widget _screen;
@@ -42,10 +42,10 @@ class MyApp extends StatelessWidget {
           "menu": (context) => menu(),
           "add": (context) => add(),
           "login": (context) => LoginPage(),
-               'phone': (context) => MyPhone(),
-      'verify': (context) => MyVerify(),
-      'location': (context) => MyLocation(),
-      'succes': (context) => MySucces(),
+          'phone': (context) => MyPhone(),
+          'verify': (context) => MyVerify(),
+          'location': (context) => MyLocation(),
+          'succes': (context) => MySucces(),
         },
         debugShowCheckedModeBanner: false,
         title: 'D-one',

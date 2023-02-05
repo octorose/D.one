@@ -9,12 +9,11 @@ class MyLocation extends StatefulWidget {
 
   @override
   State<MyLocation> createState() => _MyLocationState();
-
 }
 
 class _MyLocationState extends State<MyLocation> {
   TextEditingController countryController = TextEditingController();
-  String location ='';
+  String location = '';
   String Address = '';
   Future<Position> _getGeoLocationPosition() async {
     bool serviceEnabled;
@@ -47,20 +46,22 @@ class _MyLocationState extends State<MyLocation> {
     }
     // When we reach here, permissions are granted and we can
     // continue accessing the position of the device.
-    return await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    return await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
   }
-  Future<void> GetAddressFromLatLong(Position position)async {
-    List<Placemark> placemarks = await placemarkFromCoordinates(position.latitude, position.longitude);
+
+  Future<void> GetAddressFromLatLong(Position position) async {
+    List<Placemark> placemarks =
+        await placemarkFromCoordinates(position.latitude, position.longitude);
     print(placemarks);
     Placemark place = placemarks[0];
-    Address = '${place.subLocality}, ${place.locality}, ${place.postalCode}, ${place.country}';
-    setState(()  {
-    });
+    Address =
+        '${place.street},${place.subLocality}, ${place.locality}, ${place.postalCode}, ${place.country}';
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -79,25 +80,29 @@ class _MyLocationState extends State<MyLocation> {
         ),
         elevation: 0,
       ),
-
       body: Container(
         margin: EdgeInsets.only(left: 15, right: 15),
         alignment: Alignment.center,
         child: SingleChildScrollView(
           child: Column(
-
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset("images/h.png",
+              Image.asset(
+                "images/h.png",
                 width: 100,
-                height:80,
+                height: 80,
               ),
               SizedBox(
                 height: 30,
               ),
               Text(
-                "MY LOCATION", textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: Colors.blueAccent[200],),
+                "MY LOCATION",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blueAccent[200],
+                ),
               ),
               SizedBox(
                 height: 30,
@@ -106,13 +111,11 @@ class _MyLocationState extends State<MyLocation> {
               Container(
                 height: 55,
                 decoration: BoxDecoration(
-
                     border: Border.all(width: 1, color: Colors.black),
                     borderRadius: BorderRadius.circular(10)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-
                     SizedBox(
                       width: 10,
                     ),
@@ -121,13 +124,13 @@ class _MyLocationState extends State<MyLocation> {
                       child: TextField(
                         controller: countryController,
                         keyboardType: TextInputType.streetAddress,
-                        decoration: InputDecoration(
-                            border: InputBorder.none
-                        ),
+                        decoration: InputDecoration(border: InputBorder.none),
                       ),
                     ),
-
-                    Text('${Address}', style: TextStyle(color: Colors.black),),
+                    Text(
+                      '${Address}',
+                      style: TextStyle(color: Colors.black),
+                    ),
                     const SizedBox(height: 32),
                     SizedBox(
                       width: 10,
@@ -135,7 +138,6 @@ class _MyLocationState extends State<MyLocation> {
                   ],
                 ),
               ),
-
               const SizedBox(height: 20),
               Container(
                 height: 55,
@@ -172,29 +174,31 @@ class _MyLocationState extends State<MyLocation> {
                         decoration: InputDecoration(
                           border: InputBorder.none,
                         ),
-                      ),),
+                      ),
+                    ),
                   ],
                 ),
               ),
               const SizedBox(height: 20),
               Container(
                 child: Column(
-
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
                       height: 10,
                     ),
-
                     SizedBox(
-                        width: double.infinity, height: 45,
+                        width: double.infinity,
+                        height: 45,
                         child: ElevatedButton(
-                            onPressed: () async{
-                              Position position = await _getGeoLocationPosition();
-                              location ='Lat: ${position.latitude} , Long: ${position.longitude}';
+                            onPressed: () async {
+                              Position position =
+                                  await _getGeoLocationPosition();
+                              location =
+                                  'Lat: ${position.latitude} , Long: ${position.longitude}';
                               GetAddressFromLatLong(position);
-                            }, child: Text('Get Current Location'))
-                    ),
+                            },
+                            child: Text('Get Current Location'))),
                   ],
                 ),
               ),
@@ -205,15 +209,15 @@ class _MyLocationState extends State<MyLocation> {
                 children: [
                   TextButton(
                     onPressed: () {
-                         Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MyLocation()),
-            );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyLocation()),
+                      );
                     },
-
                     child: Text(
                       " Reset ?",
-                      style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],
@@ -230,11 +234,9 @@ class _MyLocationState extends State<MyLocation> {
                         MaterialPageRoute(builder: (context) => MySucces()),
                       );
                     },
-
                     child: Icon(
                       Icons.arrow_forward_ios_rounded,
                       color: Colors.black,
-
                     ),
                   ),
                 ],

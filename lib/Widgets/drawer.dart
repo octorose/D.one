@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/home.dart';
 
 class drawer extends StatefulWidget {
   const drawer({super.key});
@@ -45,8 +46,10 @@ class _drawerState extends State<drawer> {
                 const Icon(Icons.home, color: Color.fromARGB(255, 8, 132, 204)),
             title: const Text('Home', style: TextStyle(fontSize: 16.0)),
             onTap: () {
-              Navigator.pushNamed(context, 'home');
-            },
+    Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => home()),
+            );            },
           ),
           ListTile(
             leading:

@@ -3,6 +3,7 @@ import 'package:flutter_application_1/screens/Onboarding.dart';
 import 'package:flutter_application_1/screens/menu.dart';
 import 'package:flutter_application_1/screens/LogupPage.dart';
 import 'package:flutter_application_1/screens/LoginPage.dart';
+import 'package:flutter_application_1/screens/phone.dart';
 
 class LogupForm extends StatefulWidget {
   const LogupForm({Key? key}) : super(key: key);
@@ -284,9 +285,9 @@ class _LogupFormState extends State<LogupForm> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) =>
-                                          menu(UserName: msgEUserUPe),
-                                    ),
+                                        builder: (context) =>
+                                            // menu(UserName: msgEUserUPe),
+                                            MyPhone()),
                                   );
                                 });
                               }

@@ -296,7 +296,7 @@ class _FoodState extends State<Food> {
                     child: FoodItems.length == 0
                         ? Center(
                             child: Text(
-                              "No Results",
+                              "Search for a food",
                               style: TextStyle(
                                   fontSize: 25,
                                   fontWeight: FontWeight.bold,

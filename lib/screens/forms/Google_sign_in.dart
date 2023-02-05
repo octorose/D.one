@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/menu.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'Google_sign_in.dart';
 
@@ -27,8 +28,10 @@ class _google_sign_inState extends State<google_sign_in> {
               print('Google Auth: ${googleAuth?.accessToken}');
 
               if (googleUser?.displayName != null) {
-                Navigator.pushNamed(context, 'menu');
-              }
+    Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => menu()),
+            );              }
 
               // Now that we have the user's Google account, we can use it to sign in to your own app
               // For example, you could use the Google account to sign in to Firebase

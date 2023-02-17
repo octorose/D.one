@@ -2,7 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_1/Widgets/uploadimageWid.dart';
+import 'package:flutter_application_1/screens/LogupPage.dart';
+import 'package:flutter_application_1/screens/forms/LogupForm.dart';
 import 'package:flutter_application_1/screens/menu.dart';
+import 'package:flutter_application_1/screens/verify.dart';
 
 class UploadImgPage extends StatefulWidget {
   const UploadImgPage({super.key});
@@ -20,16 +23,16 @@ class _UploadImgPageState extends State<UploadImgPage> {
         children: [
           Container(
             alignment: Alignment.center,
-            margin: const EdgeInsets.only(top: 60),
+            margin: const EdgeInsets.only(top: 50),
             child: const Image(
-              height: 120,
+              height: 100,
               width: 120,
               // hat hana logo d-one
               image: AssetImage('assets/logo1.png'),
             ),
           ),
           const SizedBox(
-            height: 60,
+            height: 20,
           ),
           // Container(
           //   alignment: Alignment.center,
@@ -44,7 +47,7 @@ class _UploadImgPageState extends State<UploadImgPage> {
 
           Expanded(
             child: Container(
-              height: double.infinity,
+              height: 80,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -114,7 +117,7 @@ class _UploadImgPageState extends State<UploadImgPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => menu(),
+                                  builder: (context) => LogupPage(),
                                 ),
                               );
                             }),
@@ -123,7 +126,7 @@ class _UploadImgPageState extends State<UploadImgPage> {
                     ],
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 100.0),
+                    margin: EdgeInsets.only(top: 80.0),
                     alignment: Alignment.center,
                     child: const Text(
                       "Our Terms of Service",

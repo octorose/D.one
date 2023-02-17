@@ -36,7 +36,7 @@ class _SetteingPageState extends State<SetteingPage> {
             ),
           ),
           Container(
-            height: 660,
+            height: 580,
             margin: EdgeInsets.only(
               top: 30.0,
               left: 10.0,
@@ -45,23 +45,24 @@ class _SetteingPageState extends State<SetteingPage> {
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: Offset(0, 3), // changes position of shadow
+                  color: Color.fromARGB(153, 158, 158, 158).withOpacity(0.5),
+                  spreadRadius: 1,
+                  blurRadius: 4,
+                  offset: Offset(3, 0), // changes position of shadow
                 ),
               ],
               color: Color.fromARGB(185, 255, 255, 255),
               // color: Color.fromRGBO(181, 215, 243, 1),
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(30.0),
-                topRight: Radius.circular(30.0),
-              ),
+                  topLeft: Radius.circular(30.0),
+                  topRight: Radius.circular(30.0),
+                  bottomLeft: Radius.circular(30.0),
+                  bottomRight: Radius.circular(30.0)),
             ),
             child: ListView(
               children: [
                 Container(
-                  margin: EdgeInsets.only(bottom: 40),
+                  margin: EdgeInsets.only(bottom: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -258,10 +259,10 @@ class _SetteingPageState extends State<SetteingPage> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(top: 20),
+                  margin: const EdgeInsets.only(top: 1),
                   child: const Image(
-                    height: 90,
-                    width: 90,
+                    height: 70,
+                    width: 70,
                     // hat hana logo d-one
                     image: AssetImage('assets/logo1.png'),
                   ),

@@ -117,10 +117,10 @@ class _MyLocationState extends State<MyLocation> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: 10,
+                      width: 8,
                     ),
                     SizedBox(
-                      width: 5,
+                      width: 4,
                       child: TextField(
                         controller: countryController,
                         keyboardType: TextInputType.streetAddress,

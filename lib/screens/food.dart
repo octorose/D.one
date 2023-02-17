@@ -292,7 +292,7 @@ class _FoodState extends State<Food> {
                   ),
                   SizedBox(height: 20),
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.7,
+                    height: MediaQuery.of(context).size.height * 0.5,
                     child: FoodItems.length == 0
                         ? Center(
                             child: Text(

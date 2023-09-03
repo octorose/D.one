@@ -1,0 +1,41 @@
+name: Flutter CI
+
+on:
+  push:
+    branches:
+      - main  # Change to your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v9
+        with:
+          flutter-version: stable # You can specify the Flutter version here
+
+      - name: Change Directory to Frontend
+        run: cd ./frontend
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Analyze Code
+        run: flutter analyze
+
+      - name: Run Tests
+        run: flutter test
+
+      - name: Build APK
+        run: flutter build apk
+        # You can replace 'apk' with 'ios' or 'web' if needed
+
+      - name: Archive and Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: ./frontend/build/

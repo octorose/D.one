@@ -42,8 +42,8 @@ jobs:
         working-directory: frontend  # Change the working directory to "frontend"
         run: dart test
 
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v2   # Use 'v2' version for upload-artifact action
-        with:
-          name: frontend-artifact   # Specify the name for your frontend artifact
-          path: frontend/path/to/artifact    # Specify the path to the frontend artifact or files to upload
+      # - name: Upload a Build Artifact
+        # uses: actions/upload-artifact@v2   # Use 'v2' version for upload-artifact action
+        # with:
+          # name: frontend-artifact   # Specify the name for your frontend artifact
+          # path: frontend/path/to/artifact    # Specify the path to the frontend artifact or files to upload

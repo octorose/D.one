@@ -19,14 +19,14 @@ jobs:
         with:
           dart-version: '2.18.2'  # Specify the desired Dart SDK version
 
-      - name: Change Directory to Frontend
-        run: cd frontend
-
       - name: Install dependencies
+        working-directory: frontend  # Specify the working directory
         run: dart pub get
 
       - name: Analyze project source
+        working-directory: frontend  # Specify the working directory
         run: dart analyze
 
       - name: Run tests
+        working-directory: frontend  # Specify the working directory
         run: dart test

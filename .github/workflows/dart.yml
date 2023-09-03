@@ -1,10 +1,10 @@
-name: Dart CI (Frontend)
+name: Flutter CI (Frontend)
 
 on:
   push:
-    branches: [ "*" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "*" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -14,19 +14,22 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Set up Dart
-        uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v9
         with:
-          dart-version: '2.18.2'  # Specify the desired Dart SDK version
+          flutter-version: '3.3.5'  # Specify the desired Flutter SDK version
+
+      - name: Change Directory to Frontend
+        run: cd frontend
 
       - name: Install dependencies
         working-directory: frontend  # Specify the working directory
-        run: flutter pub get
+        run: flutter pub get  # Use 'flutter pub get' to install Flutter dependencies
 
       - name: Analyze project source
         working-directory: frontend  # Specify the working directory
-        run: dart analyze
+        run: flutter analyze
 
       - name: Run tests
         working-directory: frontend  # Specify the working directory
-        run: dart test
+        run: flutter test
